@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, CheckCircle, Award, Code2, Flame, Users } from 'lucide-react';
+import { Calendar, MapPin, Award, Code2, Flame, Users } from 'lucide-react';
 import { EXPERIENCE, ACHIEVEMENTS } from '../data/portfolioData';
 
 export const Experience: React.FC = () => {
@@ -22,19 +22,19 @@ export const Experience: React.FC = () => {
     <section
       id="experience"
       tabIndex={-1}
-      className="py-20 sm:py-28 bg-[#0E0F16] text-white border-t border-white/[0.08] outline-none"
+      className="py-16 sm:py-24 bg-[#0E0F16] text-white border-t border-white/[0.08] outline-none"
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-4">
+        <div className="mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
-            <span>TRACK RECORD & RECOGNITION</span>
+            <span>EXPERIENCE & TRACK RECORD</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight">
-            <span className="text-white">EXPERIENCE </span>
-            <span className="text-[#717482]">& MILESTONES</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight leading-tight">
+            <span className="text-white">ENGINEERING </span>
+            <span className="text-[#717482]">EXPERIENCE</span>
           </h2>
         </div>
 
@@ -42,47 +42,45 @@ export const Experience: React.FC = () => {
           {/* Left Column: Work History Card */}
           <div className="lg:col-span-7 space-y-4">
             <div className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38] mb-1">
-              [ 01 WORK HISTORY ]
+              WORK HISTORY
             </div>
 
             {EXPERIENCE.map((exp, idx) => (
               <div
                 key={idx}
-                className="p-7 sm:p-8 rounded-3xl bg-[#14151C] border border-white/[0.08] hover:border-white/[0.18] transition-all space-y-5"
+                className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-white/[0.08] hover:border-white/[0.16] transition-all space-y-4"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/[0.08]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/[0.08]">
                   <div>
-                    <h3 className="text-xl font-extrabold uppercase text-white">
+                    <h3 className="text-lg sm:text-xl font-bold uppercase text-white tracking-tight">
                       {exp.role}
                     </h3>
-                    <div className="text-xs font-mono font-semibold text-[#E05D38] mt-1 tracking-wider uppercase">
+                    <div className="text-xs font-mono font-semibold text-[#E05D38] mt-0.5 tracking-wider uppercase">
                       {exp.company}
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-[#8E929E]">
-                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
-                      <Calendar className="w-3.5 h-3.5 text-[#E05D38]" />
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#8E929E]">
+                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
+                      <Calendar className="w-3 h-3 text-[#E05D38]" />
                       <span>{exp.period}</span>
                     </span>
-                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
-                      <MapPin className="w-3.5 h-3.5 text-[#E05D38]" />
+                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
+                      <MapPin className="w-3 h-3 text-[#E05D38]" />
                       <span>{exp.location}</span>
                     </span>
                   </div>
                 </div>
 
-                <p className="text-sm text-[#9094A0] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[#9094A0] leading-relaxed">
                   {exp.summary}
                 </p>
 
-                {/* Bulleted Deliverables */}
-                <div className="space-y-2 pt-2">
+                {/* Clean Editorial Deliverables */}
+                <div className="space-y-1.5 pt-1">
                   {exp.responsibilities.map((resp, rIdx) => (
-                    <div key={rIdx} className="flex items-start gap-2.5 text-xs text-[#D1D5DB]">
-                      <span className="w-4 h-4 rounded-full bg-[#E05D38]/15 text-[#E05D38] flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle className="w-2.5 h-2.5" />
-                      </span>
+                    <div key={rIdx} className="flex items-start gap-2.5 text-xs text-[#D1D5DB] leading-relaxed">
+                      <span className="text-[#E05D38] font-bold select-none">—</span>
                       <span>{resp}</span>
                     </div>
                   ))}
@@ -92,13 +90,13 @@ export const Experience: React.FC = () => {
           </div>
 
           {/* Right Column: Sleek High-Density Milestone Strip */}
-          <div id="achievements" className="lg:col-span-5 space-y-3 scroll-mt-24">
-            <div className="flex items-center justify-between pb-1 border-b border-white/[0.06]">
+          <div id="achievements" className="lg:col-span-5 space-y-4 scroll-mt-24">
+            <div className="flex items-center justify-between pb-1">
               <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38]">
-                [ 02 KEY ACHIEVEMENTS ]
+                KEY ACHIEVEMENTS
               </span>
               <span className="text-[10px] font-mono text-[#717482]">
-                VERIFIED (04)
+                VERIFIED
               </span>
             </div>
 

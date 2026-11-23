@@ -10,29 +10,29 @@ export const Hero: React.FC = () => {
       className="relative min-h-[90vh] flex flex-col justify-between pt-28 sm:pt-36 pb-8 overflow-hidden bg-[#0C0D12] text-white outline-none"
     >
       {/* Background Subtle Ambience Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[650px] h-[550px] sm:h-[650px] bg-gradient-to-tr from-[#E05D38]/20 via-[#B83E1E]/10 to-transparent rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] sm:w-[550px] h-[450px] sm:h-[550px] bg-[#E05D38]/[0.07] rounded-full blur-[140px] pointer-events-none" />
 
       {/* Hero Top Content Row */}
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left: Punchy High-Impact Framer Headline */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Tag Badge with terracotta square (Portix signature) */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#181922] border border-white/[0.08] text-xs font-semibold tracking-wider uppercase text-[#E05D38]">
-              <span className="w-2 h-2 rounded-xs bg-[#E05D38]"></span>
-              <span className="text-white/90">AI ENGINEER & FULL-STACK DEVELOPER</span>
-            </div>
+            {/* Intro & Main Headline */}
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#181922] border border-white/[0.08] text-xs font-semibold tracking-wider uppercase text-[#E05D38]">
+                <span className="w-2 h-2 rounded-xs bg-[#E05D38]"></span>
+                <span className="text-white/90">NIT ROURKELA · COMPUTER SCIENCE '27</span>
+              </div>
 
-            {/* Split Dual-Tone Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.05]">
-              <span className="block text-white">ENGINEERING</span>
-              <span className="block text-white">INTELLIGENT SYSTEMS</span>
-              <span className="block text-[#717482]">THAT SCALE & SOLVE</span>
-            </h1>
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.08]">
+                <span className="block text-white">AI ENGINEER &amp;</span>
+                <span className="block text-[#717482]">FULL-STACK DEVELOPER</span>
+              </h1>
+            </div>
 
             {/* Authentic Narrative Description */}
             <p className="text-sm sm:text-base text-[#9094A0] leading-relaxed max-w-lg font-normal">
-              Computer Science undergraduate at <span className="text-white font-medium">NIT Rourkela</span>. Exploring multi-agent orchestration, explainable machine learning, and high-performance backend systems.
+              Computer Science undergraduate at <span className="text-white font-medium">NIT Rourkela</span>, passionate about building intelligent applications, scalable backend systems and practical software products.
             </p>
 
             {/* Actions & Resume */}
@@ -77,10 +77,10 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Bottom Giant Display Typography (Portix signature watermark) */}
-      <div className="relative z-0 mt-8 sm:mt-12 w-full overflow-hidden border-t border-white/[0.06] pt-4 sm:pt-6">
+      {/* Bottom Display Typography Watermark (Subtle Portix Texture) */}
+      <div className="relative z-0 mt-6 sm:mt-10 w-full overflow-hidden border-t border-white/[0.04] pt-3 sm:pt-5">
         <div className="max-w-[1240px] mx-auto px-4 text-center">
-          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-[124px] font-black uppercase tracking-tighter text-white/[0.92] select-none leading-none">
+          <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-[120px] font-black uppercase tracking-tighter text-white/[0.07] select-none leading-none pointer-events-none">
             ANKIT MEWADA
           </h2>
         </div>

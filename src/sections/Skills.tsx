@@ -17,8 +17,8 @@ export const Skills: React.FC = () => {
               <span>CAPABILITIES & STACK</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight">
-              <span className="text-white">TECHNICAL </span>
-              <span className="text-[#717482]">ARSENAL</span>
+              <span className="text-white">CORE SKILLS & </span>
+              <span className="text-[#717482]">TECHNOLOGIES</span>
             </h2>
           </div>
           <p className="text-xs text-[#9094A0] max-w-md font-mono leading-relaxed">

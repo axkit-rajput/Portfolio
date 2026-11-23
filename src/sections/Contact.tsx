@@ -78,7 +78,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-[#717482] block">
-                    [ DIRECT EMAIL ]
+                    DIRECT EMAIL
                   </span>
                   <span className="text-xs sm:text-sm font-mono font-bold text-white truncate block select-all">
                     {PERSONAL_INFO.email}
@@ -122,7 +122,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div className="min-w-0">
                   <span className="text-[10px] font-mono uppercase tracking-wider text-[#717482] block">
-                    [ DIRECT PHONE ]
+                    DIRECT PHONE
                   </span>
                   <span className="text-xs sm:text-sm font-mono font-bold text-white truncate block select-all">
                     +91 97556 01342
@@ -160,12 +160,12 @@ export const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Technical Bracketed Metadata Row */}
+        {/* Technical Metadata Row */}
         <div className="mt-14 pt-10 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
           {/* Email */}
           <div className="space-y-1.5">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
-              [ EMAIL ADDRESS ]
+              EMAIL ADDRESS
             </span>
             <a
               href={`mailto:${PERSONAL_INFO.email}`}
@@ -178,7 +178,7 @@ export const Contact: React.FC = () => {
           {/* Phone */}
           <div className="space-y-1.5">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
-              [ DIRECT PHONE ]
+              PHONE NUMBER
             </span>
             <a
               href="tel:+919755601342"
@@ -191,7 +191,7 @@ export const Contact: React.FC = () => {
           {/* Location */}
           <div className="space-y-1.5">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
-              [ INSTITUTION & LOCATION ]
+              INSTITUTION & LOCATION
             </span>
             <p className="text-sm font-medium text-white">
               NIT Rourkela, Odisha, India
@@ -201,7 +201,7 @@ export const Contact: React.FC = () => {
           {/* Social Profiles */}
           <div id="profiles" className="space-y-1.5 scroll-mt-24">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
-              [ VERIFIED CHANNELS ]
+              VERIFIED CHANNELS
             </span>
             <div className="flex flex-wrap items-center gap-3.5">
               {CODING_PROFILES.map((profile) => (

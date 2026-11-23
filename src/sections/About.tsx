@@ -11,15 +11,15 @@ export const About: React.FC = () => {
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header (Portix Style) */}
-        <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-4">
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
-            <span>ABOUT & ACADEMIC CONTEXT</span>
+            <span>PROFILE</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight">
-            <span className="text-white">TURNING COMPLEX IDEAS </span>
-            <span className="text-[#717482]">INTO FUNCTIONAL SYSTEMS</span>
+            <span className="text-white">ABOUT </span>
+            <span className="text-[#717482]">ME</span>
           </h2>
         </div>
 
@@ -29,7 +29,7 @@ export const About: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <div className="p-7 sm:p-8 rounded-3xl bg-[#14151C] border border-white/[0.08] space-y-5">
               <h3 className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38]">
-                WHY WORK WITH ME
+                BACKGROUND & PHILOSOPHY
               </h3>
 
               <div className="space-y-4 text-sm sm:text-base text-[#D1D5DB] leading-relaxed">

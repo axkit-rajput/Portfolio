@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layers, ArrowUpRight, Check, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react';
+import { Layers, ArrowUpRight, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import { GithubIcon } from '../components/Icons';
 import { ArchitectureDiagramAnkAI } from '../components/ArchitectureDiagramAnkAI';
@@ -21,19 +21,19 @@ export const Projects: React.FC = () => {
       className="py-20 sm:py-28 bg-[#0C0D12] text-white border-t border-white/[0.08] outline-none"
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header (Portix Style) */}
-        <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-4">
+        {/* Section Header */}
+        <div className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
-            <span>FEATURED WORKS (02)</span>
+            <span>PORTFOLIO</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight">
-            <span className="text-white">ENGINEERED </span>
-            <span className="text-[#717482]">SYSTEMS & INTELLIGENCE</span>
+            <span className="text-white">FEATURED </span>
+            <span className="text-[#717482]">PROJECTS</span>
           </h2>
-          <p className="text-sm text-[#9094A0] mt-3 max-w-xl leading-relaxed">
-            Production-grade systems highlighting multi-agent orchestration, RAG pipelines, and mathematically verifiable explainable AI.
+          <p className="text-sm text-[#9094A0] mt-2 max-w-xl leading-relaxed">
+            Production-grade systems in multi-agent AI orchestration and explainable machine learning.
           </p>
         </div>
 
@@ -77,33 +77,65 @@ export const Projects: React.FC = () => {
                           )}
                         </>
                       ) : (
-                        /* Credit Ledger Pipeline Graphic Card */
-                        <div className="w-full h-full p-6 flex flex-col justify-between bg-gradient-to-br from-[#12131A] to-[#1A1C26]">
-                          <div className="flex items-center justify-between">
-                            <span className="text-[11px] font-mono text-[#E05D38] uppercase tracking-wider">
-                              ML Inference & Explainability
-                            </span>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.06] text-[#A0A4B0]">
-                              ROC-AUC 0.94
+                        /* Credit Ledger Authentic SHAP Waterfall & ML Visualizer */
+                        <div className="w-full h-full p-5 sm:p-6 flex flex-col justify-between bg-[#0E0F16] font-mono select-none">
+                          <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+                            <div className="flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-[#E05D38]"></span>
+                              <span className="text-xs font-bold text-white uppercase tracking-wider">
+                                SHAP TreeExplainer Local Attribution
+                              </span>
+                            </div>
+                            <span className="text-[10px] px-2 py-0.5 rounded bg-[#1B1D27] text-emerald-400 font-semibold border border-white/[0.06]">
+                              ROC-AUC 0.942
                             </span>
                           </div>
 
-                          <div className="space-y-2 py-4">
-                            <div className="flex items-center gap-2 text-xs font-mono text-gray-300">
-                              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                              <span>Applicant Dataset (32.5K Records)</span>
+                          {/* SHAP Waterfall Bars Preview */}
+                          <div className="space-y-2 py-3 text-[11px]">
+                            <div className="flex items-center justify-between text-[#8E929E] text-[10px] pb-1">
+                              <span>FEATURE IMPACT (LOCAL EXPLANATION)</span>
+                              <span>SHAP VALUE (Δ RISK)</span>
                             </div>
-                            <div className="pl-4 border-l border-white/[0.1] text-[11px] text-[#8E929E] space-y-1">
-                              <div>→ Preprocessing & ColumnTransformer</div>
-                              <div>→ Tuned XGBoost & Logistic Regression</div>
-                              <div>→ Platt Scaling Probability Calibration</div>
-                              <div>→ SHAP TreeExplainer Local Attribution</div>
+
+                            <div className="space-y-1.5">
+                              <div>
+                                <div className="flex justify-between text-white text-[10px] mb-0.5">
+                                  <span>loan_percent_income &gt; 0.38</span>
+                                  <span className="text-[#E05D38] font-bold">+0.24</span>
+                                </div>
+                                <div className="h-1.5 w-full bg-[#181924] rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#E05D38] rounded-full" style={{ width: '78%' }}></div>
+                                </div>
+                              </div>
+
+                              <div>
+                                <div className="flex justify-between text-white text-[10px] mb-0.5">
+                                  <span>loan_grade = 'D'</span>
+                                  <span className="text-[#E05D38] font-bold">+0.18</span>
+                                </div>
+                                <div className="h-1.5 w-full bg-[#181924] rounded-full overflow-hidden">
+                                  <div className="h-full bg-[#E05D38] rounded-full" style={{ width: '58%' }}></div>
+                                </div>
+                              </div>
+
+                              <div>
+                                <div className="flex justify-between text-white text-[10px] mb-0.5">
+                                  <span>person_income = $85,000</span>
+                                  <span className="text-emerald-400 font-bold">-0.16</span>
+                                </div>
+                                <div className="h-1.5 w-full bg-[#181924] rounded-full overflow-hidden">
+                                  <div className="h-full bg-emerald-400 rounded-full" style={{ width: '52%' }}></div>
+                                </div>
+                              </div>
                             </div>
                           </div>
 
-                          <div className="flex items-center justify-between text-xs pt-2 border-t border-white/[0.08] text-gray-400">
-                            <span>FastAPI REST Serving</span>
-                            <span className="text-emerald-400 font-mono">Sub-100ms Inference</span>
+                          {/* Metric Footnote */}
+                          <div className="flex items-center justify-between text-[10px] pt-3 border-t border-white/[0.08] text-[#8E929E]">
+                            <span>Base E[f(X)]: 0.22</span>
+                            <span className="text-white font-bold">f(x): 0.51 · DEFAULT VERDICT</span>
+                            <span className="text-emerald-400 font-semibold">FastAPI &lt; 85ms</span>
                           </div>
                         </div>
                       )}
@@ -127,7 +159,7 @@ export const Projects: React.FC = () => {
                     <div>
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs font-mono font-bold text-[#E05D38] tracking-widest uppercase">
-                          CASE STUDY 0{index + 1}
+                          PROJECT 0{index + 1}
                         </span>
                         <span className="text-xs font-mono text-[#717482]">
                           {project.technicalDetails.architectureType}
@@ -145,14 +177,12 @@ export const Projects: React.FC = () => {
                         {project.description}
                       </p>
 
-                      {/* Key Engineering Checklist */}
+                      {/* Key Engineering Features - Clean Editorial List */}
                       <div className="mt-5 space-y-2">
                         {project.features.slice(0, 4).map((feat, fIdx) => (
                           <div key={fIdx} className="flex items-start gap-2.5 text-xs text-[#D1D5DB]">
-                            <span className="w-4 h-4 rounded-full bg-[#E05D38]/15 text-[#E05D38] flex items-center justify-center shrink-0 mt-0.5">
-                              <Check className="w-2.5 h-2.5" />
-                            </span>
-                            <span>{feat}</span>
+                            <span className="text-[#E05D38] font-bold select-none">—</span>
+                            <span className="leading-relaxed">{feat}</span>
                           </div>
                         ))}
                       </div>
