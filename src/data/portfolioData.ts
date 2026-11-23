@@ -123,7 +123,7 @@ export const PROJECTS: Project[] = [
       'A multi-agent AI platform that intelligently routes user requests to specialized agents for coding, search, document processing, vision and retrieval-augmented generation.',
     liveUrl: 'https://ank-ai-gray.vercel.app/',
     githubUrl: 'https://github.com/axkit-rajput/AnkAi',
-    screenshot: '/projects/ankai-hero.png',
+    screenshot: '/projects/ankai-architecture.jpg',
     architectureImage: '/projects/ankai-architecture.jpg',
     tags: [
       'React 19',

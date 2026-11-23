@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, ArrowUpRight, FileText } from 'lucide-react';
-import { NAV_LINKS, PERSONAL_INFO } from '../data/portfolioData';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavbarProps {
-  isDark: boolean;
-  toggleTheme: () => void;
   activeSection: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
-  isDark,
-  toggleTheme,
-  activeSection,
-}) => {
+export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navLinks = [
+    { name: 'WORKS', href: '#projects' },
+    { name: 'ABOUT', href: '#about' },
+    { name: 'SKILLS', href: '#skills' },
+    { name: 'EXPERIENCE', href: '#experience' },
+    { name: 'ACHIEVEMENTS', href: '#achievements' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,144 +26,105 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on resize to wide layout
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const handleLinkClick = () => {
-    setMobileMenuOpen(false);
-  };
-
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-white/90 dark:bg-[#0A0D14]/90 backdrop-blur-md border-b border-[#E5E7EB] dark:border-[#1F2636] shadow-xs'
-          : 'bg-white/60 dark:bg-[#0A0D14]/60 backdrop-blur-xs border-b border-transparent'
+          ? 'bg-[#0C0D12]/85 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl'
+          : 'bg-transparent border-b border-transparent py-5'
       }`}
     >
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        {/* Brand / Logo */}
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Brand Wordmark (PORTIX style) */}
         <a
           href="#"
-          className="group flex items-center gap-2.5 font-medium text-[#171717] dark:text-white transition-opacity hover:opacity-80"
+          className="group flex items-center gap-1.5 font-bold tracking-tight text-white hover:opacity-90 transition-opacity"
           aria-label="Ankit Mewada - Home"
         >
-          <span className="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-500 group-hover:scale-125 transition-transform"></span>
-          <span className="font-semibold tracking-tight text-base sm:text-lg">
-            {PERSONAL_INFO.name}
-          </span>
-          <span className="hidden sm:inline-block text-xs text-[#888888] dark:text-[#718096] font-normal border-l border-gray-300 dark:border-gray-700 pl-2.5 ml-0.5">
-            AI & Full-Stack
+          <span className="font-extrabold text-lg sm:text-xl tracking-tighter uppercase">
+            ANKIT<span className="text-[#E05D38]">.</span>
           </span>
         </a>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav in Center */}
         <nav
-          className="hidden md:flex items-center gap-1 lg:gap-2"
+          className="hidden md:flex items-center gap-6 lg:gap-8 bg-[#14151C]/80 px-6 py-2 rounded-full border border-white/[0.08] backdrop-blur-xs shadow-inner"
           aria-label="Primary"
-          style={{ scrollTargetGroup: 'auto' } as React.CSSProperties}
         >
-          {NAV_LINKS.map((link) => {
+          {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`relative px-3 py-1.5 text-xs lg:text-sm font-medium rounded-md transition-colors ${
+                className={`text-[11px] font-semibold tracking-widest transition-colors ${
                   isActive
-                    ? 'text-blue-600 dark:text-blue-400 font-semibold'
-                    : 'text-[#555555] dark:text-[#9CA3AF] hover:text-[#171717] dark:hover:text-white hover:bg-gray-100/60 dark:hover:bg-[#161B26]'
+                    ? 'text-white'
+                    : 'text-[#8E929E] hover:text-white'
                 }`}
                 aria-current={isActive ? 'true' : 'false'}
               >
                 {link.name}
-                {isActive && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-blue-600 dark:bg-blue-400 rounded-full" />
-                )}
               </a>
             );
           })}
         </nav>
 
-        {/* Action Controls */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Resume Quick Link */}
+        {/* Right CTA Button (Portix style with orange square arrow) */}
+        <div className="flex items-center gap-3">
           <a
-            href={PERSONAL_INFO.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-md border border-gray-200 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-colors"
-            title="Download PDF Resume"
+            href="#contact"
+            className="group hidden sm:inline-flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-[#181922] hover:bg-[#20222D] border border-white/[0.1] text-xs font-semibold text-white tracking-wider uppercase transition-all duration-200"
           >
-            <FileText className="w-3.5 h-3.5" />
-            <span>Resume</span>
+            <span className="w-7 h-7 rounded-full bg-[#E05D38] group-hover:bg-[#F06B45] text-white flex items-center justify-center transition-colors">
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </span>
+            <span>LET'S TALK</span>
           </a>
 
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#161B26] transition-colors cursor-pointer border border-transparent hover:border-gray-200 dark:hover:border-gray-800"
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-gray-600" />}
-          </button>
-
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-[#161B26] transition-colors cursor-pointer"
+            className="md:hidden p-2 rounded-full bg-[#181922] border border-white/[0.1] text-white hover:text-[#E05D38] transition-colors"
             aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-nav"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Responsive Navigation Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <nav
-          id="mobile-nav"
-          aria-label="Mobile Primary"
-          className="md:hidden border-b border-[#E5E7EB] dark:border-[#1F2636] bg-white dark:bg-[#0A0D14] px-4 pt-2 pb-6 space-y-1 shadow-lg animate-in slide-in-from-top duration-200"
+          aria-label="Mobile Navigation"
+          className="md:hidden border-b border-white/[0.08] bg-[#0C0D12]/95 backdrop-blur-xl px-6 py-6 space-y-3 mt-2 shadow-2xl animate-in slide-in-from-top duration-200"
         >
-          {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.href.substring(1);
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={handleLinkClick}
-                className={`block px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                  isActive
-                    ? 'bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-semibold'
-                    : 'text-[#444444] dark:text-[#A0AEC0] hover:bg-gray-50 dark:hover:bg-[#161B26] hover:text-[#171717] dark:hover:text-white'
-                }`}
-                aria-current={isActive ? 'true' : 'false'}
-              >
-                {link.name}
-              </a>
-            );
-          })}
-          <div className="pt-3 mt-2 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between px-3">
-            <span className="text-xs text-gray-500">Curriculum Vitae</span>
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-xs font-semibold tracking-widest text-[#9094A0] hover:text-white py-2"
+            >
+              {link.name}
+            </a>
+          ))}
+          <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="inline-flex items-center gap-2 text-xs font-bold text-[#E05D38] uppercase tracking-wider"
+            >
+              <span>LET'S TALK</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
             <a
               href={PERSONAL_INFO.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+              className="text-xs text-[#8E929E] hover:text-white"
             >
-              <span>Download Resume</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              Download CV
             </a>
           </div>
         </nav>

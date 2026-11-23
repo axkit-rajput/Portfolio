@@ -1,81 +1,108 @@
 import React from 'react';
-import { PERSONAL_INFO } from '../data/portfolioData';
-import { Terminal, Cpu, Database } from 'lucide-react';
+import { Download, GraduationCap, BookOpen } from 'lucide-react';
+import { PERSONAL_INFO, EDUCATION } from '../data/portfolioData';
 
 export const About: React.FC = () => {
   return (
     <section
       id="about"
       tabIndex={-1}
-      className="py-16 sm:py-20 border-t border-[#E5E7EB] dark:border-[#1F2636] bg-[#F7F8FA] dark:bg-[#0D111A] outline-none transition-colors"
+      className="py-20 sm:py-28 bg-[#0E0F16] text-white border-t border-white/[0.08] outline-none"
     >
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-          {/* Section Heading Label */}
-          <div className="md:col-span-4">
-            <h2 className="text-xs uppercase tracking-wider font-semibold text-[#888888] dark:text-[#718096] mb-2">
-              01 / Background
-            </h2>
-            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#171717] dark:text-white">
-              About Me
-            </h3>
-            <p className="text-xs text-[#666666] dark:text-[#9CA3AF] mt-2 leading-relaxed">
-              Engineering philosophy, academic context, and core technical pursuits.
-            </p>
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header (Portix Style) */}
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
+            <span>ABOUT & ACADEMIC CONTEXT</span>
+          </div>
 
-            {/* Quick Context Summary */}
-            <div className="mt-6 p-4 rounded-lg bg-white dark:bg-[#121622] border border-[#E5E7EB] dark:border-[#232936] text-xs space-y-2.5">
-              <div>
-                <span className="text-gray-400 dark:text-gray-500 block text-[11px] uppercase tracking-wider font-medium">Institution</span>
-                <span className="font-medium text-gray-900 dark:text-gray-100">NIT Rourkela</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight">
+            <span className="text-white">TURNING COMPLEX IDEAS </span>
+            <span className="text-[#717482]">INTO FUNCTIONAL SYSTEMS</span>
+          </h2>
+        </div>
+
+        {/* Bento Grid Split Screen (Portix Slide 2 Style) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Authentic Story & Resume Button */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="p-7 sm:p-8 rounded-3xl bg-[#14151C] border border-white/[0.08] space-y-5">
+              <h3 className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38]">
+                WHY WORK WITH ME
+              </h3>
+
+              <div className="space-y-4 text-sm sm:text-base text-[#D1D5DB] leading-relaxed">
+                <p>
+                  I'm a Computer Science undergraduate at <strong className="text-white">NIT Rourkela</strong> who enjoys building software that solves real problems.
+                </p>
+                <p className="text-[#9094A0]">
+                  My interests span artificial intelligence, multi-agent systems, backend engineering and full-stack development. I enjoy understanding how systems work internally, designing their architecture and turning complex ideas into functional products.
+                </p>
+                <p className="text-[#9094A0]">
+                  Through my projects, I've explored everything from LLM-based orchestration and retrieval-augmented generation to explainable machine learning and scalable backend systems. I believe good engineering is about building software that is useful, reliable and maintainable.
+                </p>
               </div>
-              <div>
-                <span className="text-gray-400 dark:text-gray-500 block text-[11px] uppercase tracking-wider font-medium">Degree</span>
-                <span className="font-medium text-gray-900 dark:text-gray-100">B.Tech Computer Science</span>
-              </div>
-              <div>
-                <span className="text-gray-400 dark:text-gray-500 block text-[11px] uppercase tracking-wider font-medium">Graduation</span>
-                <span className="font-medium text-gray-900 dark:text-gray-100">{PERSONAL_INFO.graduationYear}</span>
-              </div>
-              <div>
-                <span className="text-gray-400 dark:text-gray-500 block text-[11px] uppercase tracking-wider font-medium">Location</span>
-                <span className="font-medium text-gray-900 dark:text-gray-100">India</span>
+
+              {/* Download CV Action Button (Portix Style) */}
+              <div className="pt-2">
+                <a
+                  href={PERSONAL_INFO.resumeUrl}
+                  download="Ankit_Mewada_Resume.pdf"
+                  className="group inline-flex items-center gap-3 pl-5 pr-1.5 py-1.5 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white text-xs font-bold tracking-wider uppercase transition-colors shadow-lg shadow-[#E05D38]/20"
+                >
+                  <span>DOWNLOAD CURRICULUM VITAE</span>
+                  <span className="w-8 h-8 rounded-full bg-white text-[#E05D38] flex items-center justify-center font-bold">
+                    <Download className="w-3.5 h-3.5" />
+                  </span>
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Section Body */}
-          <div className="md:col-span-8 space-y-5 text-base sm:text-lg text-[#333333] dark:text-[#D1D5DB] leading-relaxed">
-            {PERSONAL_INFO.aboutText.map((paragraph, index) => (
-              <p key={index} className="font-normal">
-                {paragraph}
-              </p>
-            ))}
+          {/* Right Column: Academic Foundation at NIT Rourkela (Zero CGPA mentions) */}
+          <div id="education" className="lg:col-span-5 space-y-6 scroll-mt-24">
+            <div className="p-7 sm:p-8 rounded-3xl bg-[#14151C] border border-white/[0.08] space-y-5">
+              <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2">
+                  <GraduationCap className="w-5 h-5 text-[#E05D38]" />
+                  <span className="text-xs font-mono font-bold tracking-widest uppercase text-white">
+                    EDUCATION
+                  </span>
+                </div>
+                <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-[#E05D38]/15 text-[#E05D38] font-bold">
+                  CLASS OF 2027
+                </span>
+              </div>
 
-            {/* Core Values Pillars */}
-            <div className="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div className="p-3.5 rounded-lg bg-white dark:bg-[#121622] border border-[#E5E7EB] dark:border-[#232936]">
-                <Cpu className="w-4 h-4 text-blue-600 dark:text-blue-400 mb-2" />
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-0.5">Autonomous Systems</h4>
-                <p className="text-gray-500 dark:text-gray-400 leading-normal">
-                  Multi-agent orchestration, dynamic tool routing, and guarded RAG pipelines.
+              <div>
+                <h4 className="text-lg font-bold text-white">
+                  {EDUCATION.institution}
+                </h4>
+                <p className="text-xs sm:text-sm text-[#A0A4B2] mt-1 font-medium">
+                  {EDUCATION.degree} in {EDUCATION.field}
+                </p>
+                <p className="text-xs text-[#717482] mt-0.5">
+                  {EDUCATION.location}
                 </p>
               </div>
 
-              <div className="p-3.5 rounded-lg bg-white dark:bg-[#121622] border border-[#E5E7EB] dark:border-[#232936]">
-                <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mb-2" />
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-0.5">Scalable Backends</h4>
-                <p className="text-gray-500 dark:text-gray-400 leading-normal">
-                  Microservices, SSE streaming, distributed caching, and vector indexing.
-                </p>
-              </div>
-
-              <div className="p-3.5 rounded-lg bg-white dark:bg-[#121622] border border-[#E5E7EB] dark:border-[#232936]">
-                <Terminal className="w-4 h-4 text-purple-600 dark:text-purple-400 mb-2" />
-                <h4 className="font-semibold text-gray-900 dark:text-white mb-0.5">Explainable AI</h4>
-                <p className="text-gray-500 dark:text-gray-400 leading-normal">
-                  Auditable machine learning models using game-theoretic SHAP attributions.
-                </p>
+              {/* Relevant Coursework Matrix */}
+              <div className="pt-2">
+                <div className="flex items-center gap-1.5 text-xs font-mono text-[#E05D38] uppercase tracking-wider mb-2.5">
+                  <BookOpen className="w-3.5 h-3.5" />
+                  <span>Core Coursework</span>
+                </div>
+                <div className="grid grid-cols-2 gap-2 text-xs font-medium">
+                  {EDUCATION.coursework.map((course) => (
+                    <div
+                      key={course}
+                      className="p-2.5 rounded-xl bg-[#181924] border border-white/[0.06] text-[#C0C4D0]"
+                    >
+                      {course}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

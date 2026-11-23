@@ -1,76 +1,118 @@
 import React from 'react';
-import { ArrowRight, Download, Mail } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { ProfilePhoto } from '../components/ProfilePhoto';
 
 export const Hero: React.FC = () => {
   return (
     <section
       id="hero"
       tabIndex={-1}
-      className="pt-16 sm:pt-24 pb-16 sm:pb-24 max-w-[1140px] mx-auto px-4 sm:px-6 outline-none"
+      className="relative min-h-[92vh] flex flex-col justify-between pt-28 sm:pt-36 pb-8 overflow-hidden bg-[#0C0D12] text-white outline-none"
     >
-      <div className="flex flex-col-reverse md:flex-row md:items-start justify-between gap-8 md:gap-12">
-        {/* Left Column: Headline & Intro */}
-        <div className="flex-1 max-w-2xl">
-          {/* Subtle Availability Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-800/40 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>{PERSONAL_INFO.availability}</span>
+      {/* Background Subtle Ambience Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[650px] h-[550px] sm:h-[650px] bg-gradient-to-tr from-[#E05D38]/20 via-[#B83E1E]/10 to-transparent rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Hero Top Content Row */}
+      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Left: Punchy High-Impact Framer Headline */}
+          <div className="lg:col-span-6 space-y-6">
+            {/* Tag Badge with terracotta square (Portix signature) */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#181922] border border-white/[0.08] text-xs font-semibold tracking-wider uppercase text-[#E05D38]">
+              <span className="w-2 h-2 rounded-xs bg-[#E05D38]"></span>
+              <span className="text-white/90">AI ENGINEER & FULL-STACK DEVELOPER</span>
+            </div>
+
+            {/* Split Dual-Tone Headline */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.05]">
+              <span className="block text-white">ENGINEERING</span>
+              <span className="block text-white">INTELLIGENT SYSTEMS</span>
+              <span className="block text-[#717482]">THAT SCALE & SOLVE</span>
+            </h1>
+
+            {/* Authentic Narrative Description */}
+            <p className="text-sm sm:text-base text-[#9094A0] leading-relaxed max-w-lg font-normal">
+              Computer Science undergraduate at <span className="text-white font-medium">NIT Rourkela</span>. Exploring multi-agent orchestration, explainable machine learning, and high-performance backend systems.
+            </p>
+
+            {/* Actions & Resume */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white text-xs font-bold tracking-wider uppercase transition-all duration-200 shadow-lg shadow-[#E05D38]/20"
+              >
+                <span>EXPLORE WORKS</span>
+                <ArrowDown className="w-3.5 h-3.5" />
+              </a>
+
+              <a
+                href={PERSONAL_INFO.resumeUrl}
+                download="Ankit_Mewada_Resume.pdf"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#161720] hover:bg-[#20222D] border border-white/[0.1] text-white text-xs font-bold tracking-wider uppercase transition-all duration-200"
+              >
+                <Download className="w-3.5 h-3.5 text-[#E05D38]" />
+                <span>DOWNLOAD CV</span>
+              </a>
+            </div>
           </div>
 
-          {/* Salutation */}
-          <p className="text-sm sm:text-base font-medium text-[#666666] dark:text-[#9CA3AF] mb-2 tracking-tight">
-            Hi, I'm {PERSONAL_INFO.name}.
-          </p>
+          {/* Right: Centerpiece Portrait with Terracotta Halo Disc (Exact Portix Hero) */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end relative">
+            <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[420px] md:h-[420px] flex items-center justify-center">
+              {/* Terracotta Sunset Halo Disc */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#E05D38] via-[#C44624] to-[#1E110F] p-[2px] shadow-[0_0_60px_rgba(224,93,56,0.3)]">
+                <div className="w-full h-full rounded-full bg-[#12131A] overflow-hidden relative">
+                  {/* Actual Photo of Ankit Mewada */}
+                  <img
+                    src="/profile.jpg"
+                    alt="Ankit Mewada"
+                    className="w-full h-full object-cover object-top filter brightness-[1.03] contrast-[1.05]"
+                  />
+                  {/* Subtle vignette gradient inside disc */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D12]/80 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
 
-          {/* Main Headline */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-[#171717] dark:text-white leading-[1.15] mb-5">
-            {PERSONAL_INFO.headline}
-          </h1>
+              {/* Floating Circular Badge over the Portrait (Portix signature) */}
+              <a
+                href="#contact"
+                className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-2 z-20 group flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white shadow-xl shadow-[#E05D38]/30 transition-transform duration-300 hover:scale-105 cursor-pointer"
+                title="Available for Opportunities - Contact Me"
+              >
+                {/* SVG Rotating Circular Text */}
+                <svg
+                  className="absolute inset-0 w-full h-full animate-spin-slow select-none pointer-events-none"
+                  viewBox="0 0 100 100"
+                >
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
+                    />
+                  </defs>
+                  <text className="text-[9.5px] uppercase font-bold tracking-[2.2px] fill-white">
+                    <textPath href="#circlePath">
+                      • HIRE ME NOW • OPEN TO WORK •
+                    </textPath>
+                  </text>
+                </svg>
 
-          {/* Core Description */}
-          <p className="text-base sm:text-lg text-[#444444] dark:text-[#D1D5DB] leading-relaxed mb-4">
-            {PERSONAL_INFO.subheading}
-          </p>
-
-          {/* Additional Short Line */}
-          <p className="text-sm sm:text-base text-[#666666] dark:text-[#9CA3AF] leading-relaxed mb-8 font-normal">
-            {PERSONAL_INFO.interestLine}
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#171717] dark:bg-white text-white dark:text-[#171717] text-sm font-medium hover:bg-black dark:hover:bg-gray-100 transition-colors shadow-2xs"
-            >
-              <span>View Projects</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-
-            <a
-              href={PERSONAL_INFO.resumeUrl}
-              download="Ankit_Mewada_Resume.pdf"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#E5E7EB] dark:border-[#2D3748] bg-white dark:bg-[#161B26] text-[#171717] dark:text-white text-sm font-medium hover:border-gray-400 dark:hover:border-gray-600 transition-colors shadow-2xs"
-            >
-              <Download className="w-4 h-4 text-[#666666] dark:text-[#9CA3AF]" />
-              <span>Download Resume</span>
-            </a>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-[#555555] dark:text-[#9CA3AF] hover:text-[#171717] dark:hover:text-white text-sm font-medium hover:bg-gray-100/70 dark:hover:bg-[#161B26] transition-colors"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Contact Me</span>
-            </a>
+                {/* Center Icon */}
+                <span className="w-8 h-8 rounded-full bg-white text-[#E05D38] flex items-center justify-center font-bold text-sm shadow-inner group-hover:rotate-45 transition-transform">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+              </a>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Right Column: Small Profile Photograph */}
-        <div className="flex justify-start md:justify-end shrink-0 pt-2">
-          <ProfilePhoto size="xl" showAvailability={false} />
+      {/* Bottom Giant Display Typography (Portix signature watermark) */}
+      <div className="relative z-0 mt-8 sm:mt-12 w-full overflow-hidden border-t border-white/[0.06] pt-4 sm:pt-6">
+        <div className="max-w-[1240px] mx-auto px-4 text-center">
+          <h2 className="text-5xl sm:text-7xl md:text-8xl lg:text-[124px] font-black uppercase tracking-tighter text-white/[0.92] select-none leading-none">
+            ANKIT MEWADA
+          </h2>
         </div>
       </div>
     </section>

@@ -1,79 +1,132 @@
 import React from 'react';
-import { EXPERIENCE } from '../data/portfolioData';
-import { Calendar, MapPin, CheckCircle } from 'lucide-react';
+import { Calendar, MapPin, CheckCircle, Award, Code2, Flame, Users } from 'lucide-react';
+import { EXPERIENCE, ACHIEVEMENTS } from '../data/portfolioData';
 
 export const Experience: React.FC = () => {
+  const getAchievementIcon = (category: string) => {
+    switch (category) {
+      case 'Academics':
+        return <Award className="w-4 h-4 text-[#E05D38]" />;
+      case 'Algorithms':
+        return <Code2 className="w-4 h-4 text-[#E05D38]" />;
+      case 'Hackathon':
+        return <Flame className="w-4 h-4 text-[#E05D38]" />;
+      case 'Community':
+        return <Users className="w-4 h-4 text-[#E05D38]" />;
+      default:
+        return <Award className="w-4 h-4 text-[#E05D38]" />;
+    }
+  };
+
   return (
     <section
       id="experience"
       tabIndex={-1}
-      className="py-16 sm:py-20 border-t border-[#E5E7EB] dark:border-[#1F2636] bg-white dark:bg-[#0A0D14] outline-none transition-colors"
+      className="py-20 sm:py-28 bg-[#0E0F16] text-white border-t border-white/[0.08] outline-none"
     >
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-12">
-          <h2 className="text-xs uppercase tracking-wider font-semibold text-[#888888] dark:text-[#718096] mb-2">
-            04 / Work History
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
+            <span>TRACK RECORD & RECOGNITION</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight">
+            <span className="text-white">EXPERIENCE </span>
+            <span className="text-[#717482]">& MILESTONES</span>
           </h2>
-          <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#171717] dark:text-white">
-            Experience
-          </h3>
-          <p className="text-sm text-[#666666] dark:text-[#9CA3AF] mt-2 max-w-2xl leading-relaxed">
-            Professional software engineering internships focusing on production backend systems and AI integrations.
-          </p>
         </div>
 
-        {/* Professional Timeline */}
-        <div className="relative pl-6 sm:pl-8 border-l border-gray-200 dark:border-gray-800 space-y-12">
-          {EXPERIENCE.map((exp, idx) => (
-            <div key={idx} className="relative group">
-              {/* Timeline Indicator Node */}
-              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full bg-white dark:bg-[#0A0D14] border-2 border-blue-600 dark:border-blue-500 group-hover:scale-125 transition-transform" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Work History Card */}
+          <div className="lg:col-span-7 space-y-4">
+            <div className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38] mb-1">
+              [ 01 WORK HISTORY ]
+            </div>
 
-              <div className="p-6 sm:p-7 rounded-xl border border-[#E5E7EB] dark:border-[#1F2636] bg-[#FAFAFC] dark:bg-[#111622] hover:border-gray-300 dark:hover:border-gray-700 transition-colors">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            {EXPERIENCE.map((exp, idx) => (
+              <div
+                key={idx}
+                className="p-7 sm:p-8 rounded-3xl bg-[#14151C] border border-white/[0.08] hover:border-white/[0.18] transition-all space-y-5"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/[0.08]">
                   <div>
-                    <h4 className="text-lg font-semibold text-[#171717] dark:text-white">
+                    <h3 className="text-xl font-extrabold uppercase text-white">
                       {exp.role}
-                    </h4>
-                    <div className="text-sm font-medium text-blue-600 dark:text-blue-400 mt-0.5">
+                    </h3>
+                    <div className="text-xs font-mono font-semibold text-[#E05D38] mt-1 tracking-wider uppercase">
                       {exp.company}
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-[#666666] dark:text-[#9CA3AF] font-mono">
-                    <span className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5" />
-                      {exp.period}
+                  <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-[#8E929E]">
+                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
+                      <Calendar className="w-3.5 h-3.5 text-[#E05D38]" />
+                      <span>{exp.period}</span>
                     </span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5" />
-                      {exp.location}
+                    <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
+                      <MapPin className="w-3.5 h-3.5 text-[#E05D38]" />
+                      <span>{exp.location}</span>
                     </span>
                   </div>
                 </div>
 
-                <p className="text-sm text-[#444444] dark:text-[#CBD5E1] leading-relaxed mb-4">
+                <p className="text-sm text-[#9094A0] leading-relaxed">
                   {exp.summary}
                 </p>
 
-                {/* Key Responsibilities */}
-                <div>
-                  <h5 className="text-xs uppercase tracking-wider font-semibold text-[#888888] dark:text-[#718096] mb-2.5">
-                    Key Responsibilities & Deliverables
-                  </h5>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-[#333333] dark:text-[#D1D5DB]">
-                    {exp.responsibilities.map((resp, rIdx) => (
-                      <li key={rIdx} className="flex items-start gap-2">
-                        <CheckCircle className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-                        <span>{resp}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Bulleted Deliverables */}
+                <div className="space-y-2 pt-2">
+                  {exp.responsibilities.map((resp, rIdx) => (
+                    <div key={rIdx} className="flex items-start gap-2.5 text-xs text-[#D1D5DB]">
+                      <span className="w-4 h-4 rounded-full bg-[#E05D38]/15 text-[#E05D38] flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle className="w-2.5 h-2.5" />
+                      </span>
+                      <span>{resp}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Right Column: Four Compact Milestone Cards */}
+          <div id="achievements" className="lg:col-span-5 space-y-4 scroll-mt-24">
+            <div className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38] mb-1">
+              [ 02 ACHIEVEMENTS ]
             </div>
-          ))}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {ACHIEVEMENTS.map((item) => (
+                <div
+                  key={item.id}
+                  className="p-5 rounded-2xl bg-[#14151C] border border-white/[0.08] hover:border-[#E05D38]/40 transition-all flex flex-col justify-between group"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="p-2 rounded-lg bg-[#1B1D27] border border-white/[0.06]">
+                      {getAchievementIcon(item.category)}
+                    </div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#717482]">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <div>
+                    <div className="text-2xl font-black font-mono tracking-tight text-white group-hover:text-[#E05D38] transition-colors mb-1">
+                      {item.metric}
+                    </div>
+                    <div className="text-xs font-bold uppercase tracking-wider text-white mb-1.5">
+                      {item.title}
+                    </div>
+                    <p className="text-[11px] text-[#8E929E] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

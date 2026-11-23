@@ -11,68 +11,72 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="w-full border-t border-[#E5E7EB] dark:border-[#1F2636] bg-[#F7F8FA] dark:bg-[#0D111A] text-sm py-12 transition-colors">
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6">
+    <footer className="w-full border-t border-white/[0.08] bg-[#0A0B0E] text-white py-12 transition-colors">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left: Attribution */}
-          <div className="text-center md:text-left">
-            <p className="font-medium text-[#171717] dark:text-[#E2E8F0]">
-              Designed and built by {PERSONAL_INFO.name}.
-            </p>
-            <p className="text-xs text-[#666666] dark:text-[#9CA3AF] mt-1">
-              NIT Rourkela · Computer Science & Engineering · © {currentYear} All rights reserved.
+          <div className="text-center md:text-left space-y-1">
+            <div className="flex items-center justify-center md:justify-start gap-2">
+              <span className="font-extrabold text-base tracking-tighter uppercase text-white">
+                ANKIT<span className="text-[#E05D38]">.</span>
+              </span>
+              <span className="text-xs text-[#717482]">·</span>
+              <span className="text-xs font-mono text-[#8E929E]">AI ENGINEER & FULL-STACK DEVELOPER</span>
+            </div>
+            <p className="text-xs text-[#717482]">
+              Designed & built by {PERSONAL_INFO.name} · National Institute of Technology Rourkela · © {currentYear}
             </p>
           </div>
 
-          {/* Center/Right: Professional Links */}
+          {/* Right: Channels & Back to Top */}
           <div className="flex items-center gap-4 text-xs">
             <a
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#555555] dark:text-[#9CA3AF] hover:text-[#171717] dark:hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors"
               aria-label="GitHub Profile"
             >
-              <GithubIcon className="w-4 h-4" />
+              <GithubIcon className="w-3.5 h-3.5" />
               <span>GitHub</span>
             </a>
             <a
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#555555] dark:text-[#9CA3AF] hover:text-[#171717] dark:hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors"
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon className="w-4 h-4" />
+              <LinkedinIcon className="w-3.5 h-3.5" />
               <span>LinkedIn</span>
             </a>
             <a
               href={SOCIAL_LINKS.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#555555] dark:text-[#9CA3AF] hover:text-[#171717] dark:hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors"
               aria-label="LeetCode Profile"
             >
-              <LeetcodeIcon className="w-4 h-4" />
+              <LeetcodeIcon className="w-3.5 h-3.5" />
               <span>LeetCode</span>
             </a>
             <a
               href={`mailto:${SOCIAL_LINKS.email}`}
-              className="inline-flex items-center gap-1.5 text-[#555555] dark:text-[#9CA3AF] hover:text-[#171717] dark:hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#E05D38] transition-colors"
               aria-label="Send Email"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-3.5 h-3.5" />
               <span>Email</span>
             </a>
 
-            {/* Back to top button */}
+            {/* Back to top button (Portix style) */}
             <button
               onClick={scrollToTop}
-              className="ml-2 p-1.5 rounded-md border border-[#E5E7EB] dark:border-[#2D3748] bg-white dark:bg-[#161B26] text-gray-500 hover:text-gray-900 dark:hover:text-white hover:border-gray-400 transition-colors cursor-pointer"
+              className="ml-3 p-2 rounded-full border border-white/[0.1] bg-[#14151C] hover:bg-[#1E202B] hover:border-[#E05D38]/50 text-white transition-colors cursor-pointer"
               aria-label="Back to top"
               title="Back to top"
             >
-              <ArrowUp className="w-3.5 h-3.5" />
+              <ArrowUp className="w-3.5 h-3.5 text-[#E05D38]" />
             </button>
           </div>
         </div>

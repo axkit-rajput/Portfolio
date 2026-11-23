@@ -6,23 +6,23 @@ export const Skills: React.FC = () => {
   const getCategoryIcon = (title: string) => {
     switch (title) {
       case 'Programming':
-        return <Code className="w-4 h-4 text-blue-600 dark:text-blue-400" />;
+        return <Code className="w-4 h-4 text-[#E05D38]" />;
       case 'Frontend':
-        return <Layout className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />;
+        return <Layout className="w-4 h-4 text-[#E05D38]" />;
       case 'Backend':
-        return <Server className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />;
+        return <Server className="w-4 h-4 text-[#E05D38]" />;
       case 'AI Engineering':
-        return <Cpu className="w-4 h-4 text-purple-600 dark:text-purple-400" />;
+        return <Cpu className="w-4 h-4 text-[#E05D38]" />;
       case 'Machine Learning':
-        return <BarChart3 className="w-4 h-4 text-amber-600 dark:text-amber-400" />;
+        return <BarChart3 className="w-4 h-4 text-[#E05D38]" />;
       case 'Databases':
-        return <Database className="w-4 h-4 text-red-600 dark:text-red-400" />;
+        return <Database className="w-4 h-4 text-[#E05D38]" />;
       case 'Cloud & DevOps':
-        return <Cloud className="w-4 h-4 text-sky-600 dark:text-sky-400" />;
+        return <Cloud className="w-4 h-4 text-[#E05D38]" />;
       case 'Tools':
-        return <Wrench className="w-4 h-4 text-gray-600 dark:text-gray-400" />;
+        return <Wrench className="w-4 h-4 text-[#E05D38]" />;
       default:
-        return <Code className="w-4 h-4 text-blue-600" />;
+        return <Code className="w-4 h-4 text-[#E05D38]" />;
     }
   };
 
@@ -30,47 +30,52 @@ export const Skills: React.FC = () => {
     <section
       id="skills"
       tabIndex={-1}
-      className="py-16 sm:py-20 border-t border-[#E5E7EB] dark:border-[#1F2636] bg-white dark:bg-[#0A0D14] outline-none transition-colors"
+      className="py-20 sm:py-24 bg-[#0C0D12] text-white border-t border-white/[0.08] outline-none"
     >
-      <div className="max-w-[1140px] mx-auto px-4 sm:px-6">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12">
-          <h2 className="text-xs uppercase tracking-wider font-semibold text-[#888888] dark:text-[#718096] mb-2">
-            02 / Capabilities
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
+            <span>CAPABILITIES & STACK</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight">
+            <span className="text-white">TECHNICAL </span>
+            <span className="text-[#717482]">ARSENAL</span>
           </h2>
-          <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#171717] dark:text-white">
-            Technical Skills
-          </h3>
-          <p className="text-sm text-[#666666] dark:text-[#9CA3AF] mt-2 max-w-2xl leading-relaxed">
-            Core languages, engineering frameworks, cloud infrastructure, and AI toolchains applied across production microservices and machine learning systems.
+          <p className="text-sm text-[#9094A0] mt-3 max-w-xl leading-relaxed">
+            Proficient across backend architectures, autonomous multi-agent pipelines, machine learning explainability, and modern frontend systems.
           </p>
         </div>
 
-        {/* Skills Grid */}
+        {/* Skills Bento Grid (8 Categories) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {SKILL_CATEGORIES.map((category) => (
             <div
               key={category.title}
-              className="p-5 rounded-xl border border-[#E5E7EB] dark:border-[#1F2636] bg-[#FAFAFC] dark:bg-[#111622] hover:border-gray-300 dark:hover:border-gray-700 transition-all group"
+              className="p-5 rounded-2xl bg-[#14151C] border border-white/[0.08] hover:border-white/[0.18] transition-all group flex flex-col justify-between"
             >
-              {/* Category Header */}
-              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#E5E7EB] dark:border-[#1F2636]">
-                {getCategoryIcon(category.title)}
-                <h4 className="font-semibold text-sm text-[#171717] dark:text-white">
-                  {category.title}
-                </h4>
-              </div>
+              <div>
+                <div className="flex items-center gap-2.5 pb-3 border-b border-white/[0.08] mb-4">
+                  <div className="p-2 rounded-lg bg-[#1B1D27] border border-white/[0.06] group-hover:scale-110 transition-transform">
+                    {getCategoryIcon(category.title)}
+                  </div>
+                  <h3 className="font-bold text-xs uppercase tracking-wider text-white">
+                    {category.title}
+                  </h3>
+                </div>
 
-              {/* Skills Tags List */}
-              <div className="flex flex-wrap gap-1.5">
-                {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="inline-block px-2.5 py-1 text-xs font-mono font-medium rounded-md bg-white dark:bg-[#161B26] border border-[#E5E7EB] dark:border-[#2D3748] text-[#333333] dark:text-[#D1D5DB] group-hover:border-blue-500/30 transition-colors"
-                  >
-                    {skill}
-                  </span>
-                ))}
+                <div className="flex flex-wrap gap-1.5">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 rounded-md bg-[#191A24] border border-white/[0.06] text-[11px] font-mono text-[#D1D5DB] group-hover:border-[#E05D38]/30 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
