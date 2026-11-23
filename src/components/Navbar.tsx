@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       }`}
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Wordmark (PORTIX style) */}
+        {/* Brand Wordmark */}
         <motion.a
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}

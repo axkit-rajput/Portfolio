@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
               <span>WhatsApp</span>
             </a>
 
-            {/* Back to top button (Portix style) */}
+            {/* Back to top button */}
             <button
               onClick={scrollToTop}
               className="ml-3 p-2 rounded-full border border-white/[0.1] bg-[#14151C] hover:bg-[#1E202B] hover:border-[#E05D38]/50 text-white transition-colors cursor-pointer"

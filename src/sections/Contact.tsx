@@ -43,7 +43,7 @@ export const Contact: React.FC = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[350px] sm:w-[600px] h-[250px] sm:h-[350px] bg-gradient-to-t from-[#E05D38]/12 via-transparent to-transparent blur-[120px] pointer-events-none animate-glow" />
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Big Impact Portix "LET'S TALK NOW" Section */}
+        {/* "LET'S TALK NOW" Section */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
