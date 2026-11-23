@@ -63,8 +63,8 @@ export const PERSONAL_INFO = {
   degree: 'Bachelor of Technology in Computer Science and Engineering',
   graduationYear: 2027,
   availability: 'Open to AI & Full-Stack Engineering Opportunities',
-  resumeUrl: '/Ankit_Mewada_Resume.pdf',
-  photoUrl: '/profile.jpg',
+  resumeUrl: './Ankit_Mewada_Resume.pdf',
+  photoUrl: './profile.jpg',
   aboutText: [
     "I'm a Computer Science undergraduate at NIT Rourkela who enjoys building software that solves real problems.",
     'My interests span artificial intelligence, multi-agent systems, backend engineering and full-stack development.',
@@ -126,8 +126,8 @@ export const PROJECTS: Project[] = [
       'A multi-agent AI platform that intelligently routes user requests to specialized agents for coding, search, document processing, vision and retrieval-augmented generation.',
     liveUrl: 'https://ank-ai-gray.vercel.app/',
     githubUrl: 'https://github.com/axkit-rajput/AnkAi',
-    screenshot: '/projects/ankai-architecture.jpg',
-    architectureImage: '/projects/ankai-architecture.jpg',
+    screenshot: './projects/ankai-architecture.jpg',
+    architectureImage: './projects/ankai-architecture.jpg',
     tags: [
       'React 19',
       'LangGraph',

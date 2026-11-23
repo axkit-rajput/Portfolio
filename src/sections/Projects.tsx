@@ -223,7 +223,7 @@ export const Projects: React.FC = () => {
       <ArchitectureModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        imageSrc="/projects/ankai-architecture.jpg"
+        imageSrc="./projects/ankai-architecture.jpg"
         title="AnkAI Orchestration Architecture Blueprint"
         description="5 Microservices, LangGraph StateGraph, 8 Specialist Agents, and Qdrant Vector Store"
       />

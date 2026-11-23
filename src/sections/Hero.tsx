@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
                 <div className="w-full h-full rounded-full bg-[#12131A] overflow-hidden relative">
                   {/* Actual Photo of Ankit Mewada */}
                   <img
-                    src="/profile.jpg"
+                    src="./profile.jpg"
                     alt="Ankit Mewada"
                     className="w-full h-full object-cover object-top filter brightness-[1.03] contrast-[1.05]"
                   />
