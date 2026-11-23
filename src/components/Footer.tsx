@@ -29,60 +29,60 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Right: Channels & Back to Top */}
-          <div className="flex items-center gap-4 text-xs">
+          <div className="w-full md:w-auto flex flex-wrap items-center justify-center md:justify-end gap-x-5 gap-y-3 text-xs">
             <a
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors py-1"
               aria-label="GitHub Profile"
             >
-              <GithubIcon className="w-3.5 h-3.5" />
+              <GithubIcon className="w-3.5 h-3.5 shrink-0" />
               <span>GitHub</span>
             </a>
             <a
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors py-1"
               aria-label="LinkedIn Profile"
             >
-              <LinkedinIcon className="w-3.5 h-3.5" />
+              <LinkedinIcon className="w-3.5 h-3.5 shrink-0" />
               <span>LinkedIn</span>
             </a>
             <a
               href={SOCIAL_LINKS.leetcode}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-white transition-colors py-1"
               aria-label="LeetCode Profile"
             >
-              <LeetcodeIcon className="w-3.5 h-3.5" />
+              <LeetcodeIcon className="w-3.5 h-3.5 shrink-0" />
               <span>LeetCode</span>
             </a>
             <a
               href={`mailto:${SOCIAL_LINKS.email}`}
-              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#E05D38] transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#E05D38] transition-colors py-1"
               aria-label="Send Email"
             >
-              <Mail className="w-3.5 h-3.5" />
+              <Mail className="w-3.5 h-3.5 shrink-0" />
               <span>Email</span>
             </a>
             <a
               href="https://wa.me/919755601342"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#25D366] transition-colors"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#25D366] transition-colors py-1"
               aria-label="Chat on WhatsApp"
             >
-              <WhatsappIcon className="w-3.5 h-3.5" />
+              <WhatsappIcon className="w-3.5 h-3.5 shrink-0" />
               <span>WhatsApp</span>
             </a>
 
             {/* Back to top button */}
             <button
               onClick={scrollToTop}
-              className="ml-3 p-2 rounded-full border border-white/[0.1] bg-[#14151C] hover:bg-[#1E202B] hover:border-[#E05D38]/50 text-white transition-colors cursor-pointer"
+              className="ml-1 sm:ml-3 p-2 rounded-full border border-white/[0.1] bg-[#14151C] hover:bg-[#1E202B] hover:border-[#E05D38]/50 text-white transition-colors cursor-pointer shrink-0"
               aria-label="Back to top"
               title="Back to top"
             >

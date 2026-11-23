@@ -257,14 +257,14 @@ export const Contact: React.FC = () => {
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
               VERIFIED CHANNELS
             </span>
-            <div className="flex flex-wrap items-center gap-3.5 pt-1">
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
               {CODING_PROFILES.map((profile) => (
                 <a
                   key={profile.platform}
                   href={profile.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-[#A0A4B2] hover:text-white transition-colors min-h-[36px]"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-[#A0A4B2] hover:text-white px-2.5 py-1.5 rounded-lg bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.2] transition-all min-h-[36px]"
                 >
                   {getProfileIcon(profile.platform)}
                   <span>{profile.platform}</span>

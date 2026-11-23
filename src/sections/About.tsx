@@ -31,14 +31,14 @@ export const About: React.FC = () => {
         </motion.div>
 
         {/* Bento Grid Split Screen */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Column: Authentic Story & Resume Button */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6"
+            className="md:col-span-7 space-y-6"
           >
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#14151C] border border-white/[0.08] space-y-5">
               <h3 className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38]">
@@ -82,7 +82,7 @@ export const About: React.FC = () => {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.1 }}
             id="education"
-            className="lg:col-span-5 space-y-6 scroll-mt-24"
+            className="md:col-span-5 space-y-6 scroll-mt-24"
           >
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#14151C] border border-white/[0.08] space-y-5">
               <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">

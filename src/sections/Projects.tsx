@@ -59,9 +59,9 @@ export const Projects: React.FC = () => {
                 className="group rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#14151C] hover:border-white/[0.16] transition-all duration-300 overflow-hidden shadow-2xl"
               >
                 {/* Main Card Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 p-4 sm:p-7 lg:p-10">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-8 p-4 sm:p-7 lg:p-10">
                   {/* Left Column: Visual Preview (Using Blueprint Image for AnkAI) */}
-                  <div className="lg:col-span-6 flex flex-col justify-between">
+                  <div className="md:col-span-6 flex flex-col justify-between">
                     <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0B0F] aspect-[16/10] group-hover:border-[#E05D38]/40 transition-colors">
                       {project.screenshot ? (
                         <>
@@ -166,7 +166,7 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Right Column: Information & Actions */}
-                  <div className="lg:col-span-6 flex flex-col justify-between space-y-4 sm:space-y-5">
+                  <div className="md:col-span-6 flex flex-col justify-between space-y-4 sm:space-y-5">
                     <div>
                       <div className="flex items-center justify-between mb-1.5 sm:mb-2">
                         <span className="text-[11px] sm:text-xs font-mono font-bold text-[#E05D38] tracking-widest uppercase">

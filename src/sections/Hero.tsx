@@ -8,20 +8,20 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       tabIndex={-1}
-      className="relative min-h-[90vh] flex flex-col justify-between pt-24 sm:pt-36 pb-6 sm:pb-8 overflow-hidden bg-[#0C0D12] text-white outline-none"
+      className="relative flex flex-col justify-center min-h-[82vh] md:min-h-[88vh] pt-20 sm:pt-28 md:pt-32 pb-4 sm:pb-8 overflow-hidden bg-[#0C0D12] text-white outline-none"
     >
       {/* Background Subtle Ambience Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#E05D38]/[0.08] rounded-full blur-[140px] pointer-events-none animate-glow" />
 
       {/* Hero Content Container */}
-      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
+      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 lg:gap-12 items-center">
           {/* Left: Punchy High-Impact Headline & Intro */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left"
+            className="md:col-span-7 space-y-4 sm:space-y-5 md:space-y-6 text-center md:text-left order-last md:order-first"
           >
             {/* Tag Badge */}
             <motion.div
@@ -39,7 +39,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.7 }}
-              className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight leading-[1.08]"
+              className="text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight leading-[1.08]"
             >
               <span className="block text-white">AI ENGINEER &amp;</span>
               <span className="block text-[#717482]">FULL-STACK DEVELOPER</span>
@@ -50,7 +50,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.7 }}
-              className="text-xs sm:text-base text-[#9094A0] leading-relaxed max-w-lg mx-auto lg:mx-0 font-normal"
+              className="text-xs sm:text-base text-[#9094A0] leading-relaxed max-w-lg mx-auto md:mx-0 font-normal"
             >
               Computer Science undergraduate at <span className="text-white font-medium">NIT Rourkela</span>, passionate about building intelligent applications, scalable backend systems and practical software products.
             </motion.p>
@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2"
+              className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2"
             >
               <motion.a
                 whileHover={{ scale: 1.03 }}
@@ -90,9 +90,9 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.25, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex justify-center lg:justify-end relative order-first lg:order-last"
+            className="md:col-span-5 flex justify-center md:justify-end relative order-first md:order-last"
           >
-            <div className="relative w-[210px] h-[210px] sm:w-[280px] sm:h-[280px] md:w-[340px] md:h-[340px] lg:w-[380px] lg:h-[380px] flex items-center justify-center">
+            <div className="relative w-[210px] h-[210px] sm:w-[260px] sm:h-[260px] md:w-[310px] md:h-[310px] lg:w-[370px] lg:h-[370px] flex items-center justify-center">
               {/* Terracotta Sunset Halo Disc */}
               <div className="w-full h-full rounded-full bg-gradient-to-br from-[#E05D38] via-[#C44624] to-[#1E110F] p-[2px] shadow-[0_0_50px_rgba(224,93,56,0.25)]">
                 <div className="w-full h-full rounded-full bg-[#12131A] overflow-hidden relative">
@@ -112,7 +112,7 @@ export const Hero: React.FC = () => {
       </div>
 
       {/* Bottom Display Typography Watermark (Safe Responsive Text) */}
-      <div className="relative z-0 mt-4 sm:mt-8 w-full overflow-hidden border-t border-white/[0.04] pt-2 sm:pt-4">
+      <div className="relative z-0 mt-6 sm:mt-10 md:mt-12 w-full overflow-hidden border-t border-white/[0.04] pt-2 sm:pt-4">
         <div className="max-w-[1240px] mx-auto px-4 text-center overflow-hidden">
           <h2 className="text-2xl sm:text-5xl md:text-7xl lg:text-[110px] font-black uppercase tracking-tight sm:tracking-tighter text-white/[0.07] select-none leading-none pointer-events-none whitespace-nowrap">
             ANKIT MEWADA
