@@ -264,9 +264,9 @@ export const EDUCATION = {
 export const ACHIEVEMENTS: AchievementItem[] = [
   {
     id: 'jee',
-    title: 'JEE Advanced / Main 2023',
+    title: 'JEE Mains 2023',
     metric: 'AIR 2795',
-    description: 'Secured All India Rank 2795 among more than one million candidates in JEE 2023.',
+    description: 'Secured All India Rank 2795 among more than one million candidates in JEE Mains 2023.',
     category: 'Academics',
   },
   {

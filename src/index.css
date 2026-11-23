@@ -171,15 +171,20 @@ html.light .text-\[\#C0C4D0\],
 html.light .text-\[\#D1D5DB\] {
   color: #555968 !important;
 }
+html.light .text-white\/\[0\.20\],
 html.light .text-white\/\[0\.07\] {
-  color: rgba(0, 0, 0, 0.06) !important;
+  color: rgba(0, 0, 0, 0.18) !important;
 }
 
 /* Ensure text inside prominent accent buttons stays white */
 html.light .bg-\[\#E05D38\] .text-white,
 html.light a.bg-\[\#E05D38\],
 html.light button.bg-\[\#E05D38\],
-html.light .bg-\[\#E05D38\] span {
+html.light .bg-\[\#E05D38\] span,
+.blueprint-badge,
+.blueprint-badge span,
+html.light .blueprint-badge,
+html.light .blueprint-badge span {
   color: #FFFFFF !important;
 }
 

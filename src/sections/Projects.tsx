@@ -62,28 +62,33 @@ export const Projects: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-8 p-4 sm:p-7 lg:p-10">
                   {/* Left Column: Visual Preview (Using Blueprint Image for AnkAI) */}
                   <div className="md:col-span-6 flex flex-col justify-between">
-                    <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0B0F] aspect-[16/10] group-hover:border-[#E05D38]/40 transition-colors">
+                    <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-black/10 dark:border-white/[0.08] !bg-[#0A0B0F] aspect-[16/10] group-hover:border-[#E05D38]/50 transition-all shadow-md">
                       {project.screenshot ? (
                         <>
                           <img
                             src={project.screenshot}
                             alt={`${project.title} Architecture Blueprint`}
-                            className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 cursor-pointer"
+                            className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 cursor-pointer brightness-[1.02] contrast-[1.06]"
                             onClick={() => {
                               if (project.id === 'ankai') setIsModalOpen(true);
                             }}
                           />
-                          <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2 sm:px-2.5 py-1 rounded-md text-[9px] sm:text-[10px] font-mono tracking-wider uppercase bg-black/85 text-white border border-white/[0.1] backdrop-blur-xs flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
-                            <span>Architecture Blueprint</span>
+                          <div
+                            className="blueprint-badge absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-3 py-1.5 rounded-lg text-[10px] sm:text-[11px] font-mono tracking-wider uppercase border border-white/25 backdrop-blur-md flex items-center gap-2 shadow-2xl select-none z-20"
+                            style={{ backgroundColor: 'rgba(12, 13, 18, 0.95)', color: '#FFFFFF' }}
+                          >
+                            <span className="w-2 h-2 rounded-full bg-[#E05D38] shrink-0 animate-pulse"></span>
+                            <span className="font-bold tracking-wider" style={{ color: '#FFFFFF' }}>
+                              Architecture Blueprint
+                            </span>
                           </div>
                           {project.id === 'ankai' && (
                             <button
                               onClick={() => setIsModalOpen(true)}
-                              className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 px-2.5 sm:px-3 py-1.5 rounded-md text-[11px] sm:text-xs font-semibold bg-[#E05D38] hover:bg-[#F06B45] text-white flex items-center gap-1.5 shadow-lg transition-colors cursor-pointer"
+                              className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 px-3 py-1.5 rounded-md text-[11px] sm:text-xs font-semibold bg-[#E05D38] hover:bg-[#F06B45] !text-white flex items-center gap-1.5 shadow-xl transition-all cursor-pointer select-none"
                             >
-                              <ZoomIn className="w-3.5 h-3.5" />
-                              <span>Enlarge Blueprint</span>
+                              <ZoomIn className="w-3.5 h-3.5 !text-white" />
+                              <span className="!text-white">Enlarge Blueprint</span>
                             </button>
                           )}
                         </>

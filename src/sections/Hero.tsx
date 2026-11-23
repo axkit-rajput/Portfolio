@@ -114,7 +114,7 @@ export const Hero: React.FC = () => {
       {/* Bottom Display Typography Watermark (Safe Responsive Text) */}
       <div className="relative z-0 mt-6 sm:mt-10 md:mt-12 w-full overflow-hidden border-t border-white/[0.04] pt-2 sm:pt-4">
         <div className="max-w-[1240px] mx-auto px-4 text-center overflow-hidden">
-          <h2 className="text-2xl sm:text-5xl md:text-7xl lg:text-[110px] font-black uppercase tracking-tight sm:tracking-tighter text-white/[0.07] select-none leading-none pointer-events-none whitespace-nowrap">
+          <h2 className="text-2xl sm:text-5xl md:text-7xl lg:text-[110px] font-black uppercase tracking-tight sm:tracking-tighter text-white/[0.20] select-none leading-none pointer-events-none whitespace-nowrap">
             ANKIT MEWADA
           </h2>
         </div>
