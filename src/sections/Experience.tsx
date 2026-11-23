@@ -91,38 +91,40 @@ export const Experience: React.FC = () => {
             ))}
           </div>
 
-          {/* Right Column: Four Compact Milestone Cards */}
-          <div id="achievements" className="lg:col-span-5 space-y-4 scroll-mt-24">
-            <div className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38] mb-1">
-              [ 02 ACHIEVEMENTS ]
+          {/* Right Column: Sleek High-Density Milestone Strip */}
+          <div id="achievements" className="lg:col-span-5 space-y-3 scroll-mt-24">
+            <div className="flex items-center justify-between pb-1 border-b border-white/[0.06]">
+              <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38]">
+                [ 02 KEY ACHIEVEMENTS ]
+              </span>
+              <span className="text-[10px] font-mono text-[#717482]">
+                VERIFIED (04)
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            <div className="space-y-2">
               {ACHIEVEMENTS.map((item) => (
                 <div
                   key={item.id}
-                  className="p-5 rounded-2xl bg-[#14151C] border border-white/[0.08] hover:border-[#E05D38]/40 transition-all flex flex-col justify-between group"
+                  className="p-3 sm:p-3.5 rounded-xl bg-[#14151C] border border-white/[0.06] hover:border-[#E05D38]/30 transition-all flex items-center justify-between gap-3 group"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="p-2 rounded-lg bg-[#1B1D27] border border-white/[0.06]">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="p-2 rounded-lg bg-[#1B1D27] border border-white/[0.06] shrink-0 text-[#E05D38]">
                       {getAchievementIcon(item.category)}
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#717482]">
-                      {item.category}
-                    </span>
+                    <div className="min-w-0">
+                      <div className="text-xs font-bold uppercase tracking-wider text-white group-hover:text-[#E05D38] transition-colors truncate">
+                        {item.title}
+                      </div>
+                      <p className="text-[11px] text-[#8E929E] truncate">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
 
-                  <div>
-                    <div className="text-2xl font-black font-mono tracking-tight text-white group-hover:text-[#E05D38] transition-colors mb-1">
-                      {item.metric}
-                    </div>
-                    <div className="text-xs font-bold uppercase tracking-wider text-white mb-1.5">
-                      {item.title}
-                    </div>
-                    <p className="text-[11px] text-[#8E929E] leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+                  <span className="shrink-0 px-2.5 py-1 rounded-md bg-[#191A24] border border-white/[0.06] text-xs font-mono font-black text-[#E05D38]">
+                    {item.metric}
+                  </span>
                 </div>
               ))}
             </div>

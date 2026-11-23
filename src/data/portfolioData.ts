@@ -56,6 +56,8 @@ export const PERSONAL_INFO = {
   interestLine:
     'Interested in AI Engineering, Backend Development and Full-Stack Systems.',
   email: 'mewadaankit7089@gmail.com',
+  phone: '+91 9755601342',
+  phoneDisplay: '+91 97556 01342',
   location: 'India',
   college: 'National Institute of Technology Rourkela (NIT Rourkela)',
   degree: 'Bachelor of Technology in Computer Science and Engineering',
@@ -77,6 +79,7 @@ export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/ankit7089/',
   leetcode: 'https://leetcode.com/u/rcbcskgtmipbks/',
   email: 'mewadaankit7089@gmail.com',
+  phone: 'tel:+919755601342',
 };
 
 export const SKILL_CATEGORIES: SkillCategory[] = [

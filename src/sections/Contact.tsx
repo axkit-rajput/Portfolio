@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
-import { Mail, Copy, Check, ArrowUpRight, Terminal } from 'lucide-react';
+import { Mail, Phone, Copy, Check, ArrowUpRight, Terminal } from 'lucide-react';
 import { PERSONAL_INFO, CODING_PROFILES } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon, LeetcodeIcon } from '../components/Icons';
 
 export const Contact: React.FC = () => {
-  const [copied, setCopied] = useState(false);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const copyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const copyPhone = () => {
+    navigator.clipboard.writeText(PERSONAL_INFO.phone || '9755601342');
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const getProfileIcon = (platform: string) => {
@@ -29,7 +36,7 @@ export const Contact: React.FC = () => {
     <section
       id="contact"
       tabIndex={-1}
-      className="relative py-24 sm:py-32 bg-[#0C0D12] text-white border-t border-white/[0.08] overflow-hidden outline-none"
+      className="relative py-20 sm:py-28 bg-[#0C0D12] text-white border-t border-white/[0.08] overflow-hidden outline-none"
     >
       {/* Background Ambience Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-gradient-to-t from-[#E05D38]/15 via-transparent to-transparent blur-[140px] pointer-events-none" />
@@ -61,55 +68,102 @@ export const Contact: React.FC = () => {
             Interested in building something interesting or discussing technology? Feel free to reach out. Open to engineering opportunities and collaborations.
           </p>
 
-          {/* Email Action Card */}
-          <div className="mt-8 max-w-xl mx-auto p-4 sm:p-5 rounded-2xl bg-[#14151C] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl">
-            <div className="flex items-center gap-3 text-left">
-              <div className="p-3 rounded-xl bg-[#1C1E2A] text-[#E05D38]">
-                <Mail className="w-5 h-5" />
+          {/* Direct Contact Cards (Email & Phone) */}
+          <div className="mt-8 max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+            {/* Email Card */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#14151C] border border-white/[0.08] flex flex-col justify-between gap-4 shadow-xl text-left">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-[#1C1E2A] text-[#E05D38]">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#717482] block">
+                    [ DIRECT EMAIL ]
+                  </span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-white truncate block select-all">
+                    {PERSONAL_INFO.email}
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-[#717482] block">
-                  [ DIRECT EMAIL ]
-                </span>
-                <span className="text-sm sm:text-base font-mono font-bold text-white select-all">
-                  {PERSONAL_INFO.email}
-                </span>
+
+              <div className="flex items-center gap-2 pt-2 border-t border-white/[0.06]">
+                <button
+                  onClick={copyEmail}
+                  className="flex-1 py-2 rounded-full bg-[#1C1E2A] hover:bg-[#252838] border border-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-white transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check className="w-3 h-3 text-emerald-400" />
+                      <span className="text-emerald-400">COPIED!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3 h-3 text-gray-400" />
+                      <span>COPY</span>
+                    </>
+                  )}
+                </button>
+
+                <a
+                  href={`mailto:${PERSONAL_INFO.email}`}
+                  className="flex-1 py-2 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white text-[11px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1 shadow-lg shadow-[#E05D38]/20"
+                >
+                  <span>SEND</span>
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
             </div>
 
-            <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-              <button
-                onClick={copyEmail}
-                className="px-4 py-2.5 rounded-full bg-[#1C1E2A] hover:bg-[#252838] border border-white/[0.08] text-xs font-bold uppercase tracking-wider text-white transition-colors cursor-pointer flex items-center gap-1.5"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400">COPIED!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5 text-gray-400" />
-                    <span>COPY</span>
-                  </>
-                )}
-              </button>
+            {/* Direct Phone Card */}
+            <div className="p-4 sm:p-5 rounded-2xl bg-[#14151C] border border-white/[0.08] flex flex-col justify-between gap-4 shadow-xl text-left">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-[#1C1E2A] text-[#E05D38]">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#717482] block">
+                    [ DIRECT PHONE ]
+                  </span>
+                  <span className="text-xs sm:text-sm font-mono font-bold text-white truncate block select-all">
+                    +91 97556 01342
+                  </span>
+                </div>
+              </div>
 
-              <a
-                href={`mailto:${PERSONAL_INFO.email}`}
-                className="px-5 py-2.5 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-1.5 shadow-lg shadow-[#E05D38]/20"
-              >
-                <span>SEND</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
+              <div className="flex items-center gap-2 pt-2 border-t border-white/[0.06]">
+                <button
+                  onClick={copyPhone}
+                  className="flex-1 py-2 rounded-full bg-[#1C1E2A] hover:bg-[#252838] border border-white/[0.08] text-[11px] font-bold uppercase tracking-wider text-white transition-colors cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  {copiedPhone ? (
+                    <>
+                      <Check className="w-3 h-3 text-emerald-400" />
+                      <span className="text-emerald-400">COPIED!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-3 h-3 text-gray-400" />
+                      <span>COPY</span>
+                    </>
+                  )}
+                </button>
+
+                <a
+                  href="tel:+919755601342"
+                  className="flex-1 py-2 rounded-full bg-[#1C1E2A] hover:bg-[#252838] border border-white/[0.1] text-white text-[11px] font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-1"
+                >
+                  <span>CALL</span>
+                  <ArrowUpRight className="w-3 h-3 text-[#E05D38]" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Technical Bracketed Metadata Row (From Video Highlights) */}
-        <div className="mt-16 pt-12 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-8 text-xs">
+        {/* Technical Bracketed Metadata Row */}
+        <div className="mt-14 pt-10 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
           {/* Email */}
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
               [ EMAIL ADDRESS ]
             </span>
@@ -121,8 +175,21 @@ export const Contact: React.FC = () => {
             </a>
           </div>
 
+          {/* Phone */}
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
+              [ DIRECT PHONE ]
+            </span>
+            <a
+              href="tel:+919755601342"
+              className="text-sm font-medium text-white hover:text-[#E05D38] transition-colors"
+            >
+              +91 97556 01342
+            </a>
+          </div>
+
           {/* Location */}
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
               [ INSTITUTION & LOCATION ]
             </span>
@@ -132,18 +199,18 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Social Profiles */}
-          <div id="profiles" className="space-y-2 scroll-mt-24">
+          <div id="profiles" className="space-y-1.5 scroll-mt-24">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#717482] block">
               [ VERIFIED CHANNELS ]
             </span>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3.5">
               {CODING_PROFILES.map((profile) => (
                 <a
                   key={profile.platform}
                   href={profile.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-[#A0A4B2] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-medium text-[#A0A4B2] hover:text-white transition-colors"
                 >
                   {getProfileIcon(profile.platform)}
                   <span>{profile.platform}</span>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, ArrowUpRight, Download } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 export const Hero: React.FC = () => {
@@ -7,7 +7,7 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       tabIndex={-1}
-      className="relative min-h-[92vh] flex flex-col justify-between pt-28 sm:pt-36 pb-8 overflow-hidden bg-[#0C0D12] text-white outline-none"
+      className="relative min-h-[90vh] flex flex-col justify-between pt-28 sm:pt-36 pb-8 overflow-hidden bg-[#0C0D12] text-white outline-none"
     >
       {/* Background Subtle Ambience Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] sm:w-[650px] h-[550px] sm:h-[650px] bg-gradient-to-tr from-[#E05D38]/20 via-[#B83E1E]/10 to-transparent rounded-full blur-[120px] pointer-events-none" />
@@ -56,11 +56,11 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right: Centerpiece Portrait with Terracotta Halo Disc (Exact Portix Hero) */}
+          {/* Right: Centerpiece Portrait with Terracotta Halo Disc */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end relative">
             <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[420px] md:h-[420px] flex items-center justify-center">
               {/* Terracotta Sunset Halo Disc */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#E05D38] via-[#C44624] to-[#1E110F] p-[2px] shadow-[0_0_60px_rgba(224,93,56,0.3)]">
+              <div className="w-full h-full rounded-full bg-gradient-to-br from-[#E05D38] via-[#C44624] to-[#1E110F] p-[2px] shadow-[0_0_60px_rgba(224,93,56,0.3)]">
                 <div className="w-full h-full rounded-full bg-[#12131A] overflow-hidden relative">
                   {/* Actual Photo of Ankit Mewada */}
                   <img
@@ -72,36 +72,6 @@ export const Hero: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D12]/80 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
-
-              {/* Floating Circular Badge over the Portrait (Portix signature) */}
-              <a
-                href="#contact"
-                className="absolute -bottom-2 -left-2 sm:bottom-4 sm:left-2 z-20 group flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white shadow-xl shadow-[#E05D38]/30 transition-transform duration-300 hover:scale-105 cursor-pointer"
-                title="Available for Opportunities - Contact Me"
-              >
-                {/* SVG Rotating Circular Text */}
-                <svg
-                  className="absolute inset-0 w-full h-full animate-spin-slow select-none pointer-events-none"
-                  viewBox="0 0 100 100"
-                >
-                  <defs>
-                    <path
-                      id="circlePath"
-                      d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0"
-                    />
-                  </defs>
-                  <text className="text-[9.5px] uppercase font-bold tracking-[2.2px] fill-white">
-                    <textPath href="#circlePath">
-                      • HIRE ME NOW • OPEN TO WORK •
-                    </textPath>
-                  </text>
-                </svg>
-
-                {/* Center Icon */}
-                <span className="w-8 h-8 rounded-full bg-white text-[#E05D38] flex items-center justify-center font-bold text-sm shadow-inner group-hover:rotate-45 transition-transform">
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </a>
             </div>
           </div>
         </div>

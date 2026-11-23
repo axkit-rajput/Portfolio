@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Mail } from 'lucide-react';
+import { ArrowUp, Mail, Phone } from 'lucide-react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon, LeetcodeIcon } from './Icons';
 
@@ -67,6 +67,14 @@ export const Footer: React.FC = () => {
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Email</span>
+            </a>
+            <a
+              href="tel:+919755601342"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#E05D38] transition-colors"
+              aria-label="Direct Phone"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>+91 97556 01342</span>
             </a>
 
             {/* Back to top button (Portix style) */}
