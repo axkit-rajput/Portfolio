@@ -22,6 +22,16 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--bg-main);
     color: var(--text-primary);
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
   }
 
   section[id] {
@@ -47,18 +57,34 @@
   }
 }
 
-/* Rotating badge animation */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
+/* Floating animation */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateY(-6px);
   }
 }
 
-.animate-spin-slow {
-  animation: spin-slow 16s linear infinite;
+.animate-float {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+/* Ambient glow breathing */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.08;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.14;
+    transform: scale(1.06);
+  }
+}
+
+.animate-glow {
+  animation: pulse-glow 6s ease-in-out infinite;
 }
 
 /* Custom scrollbar */

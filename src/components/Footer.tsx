@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowUp, Mail, Phone } from 'lucide-react';
+import { ArrowUp, Mail } from 'lucide-react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/portfolioData';
-import { GithubIcon, LinkedinIcon, LeetcodeIcon } from './Icons';
+import { GithubIcon, LinkedinIcon, LeetcodeIcon, WhatsappIcon } from './Icons';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -69,12 +69,14 @@ export const Footer: React.FC = () => {
               <span>Email</span>
             </a>
             <a
-              href="tel:+919755601342"
-              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#E05D38] transition-colors"
-              aria-label="Direct Phone"
+              href="https://wa.me/919755601342"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[#8E929E] hover:text-[#25D366] transition-colors"
+              aria-label="Chat on WhatsApp"
             >
-              <Phone className="w-3.5 h-3.5" />
-              <span>+91 97556 01342</span>
+              <WhatsappIcon className="w-3.5 h-3.5" />
+              <span>WhatsApp</span>
             </a>
 
             {/* Back to top button (Portix style) */}

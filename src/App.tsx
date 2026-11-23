@@ -20,7 +20,7 @@ export const App: React.FC = () => {
   ]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0C0D12] text-white selection:bg-[#E05D38] selection:text-white transition-colors duration-200">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden flex flex-col bg-[#0C0D12] text-white selection:bg-[#E05D38] selection:text-white transition-colors duration-200">
       {/* Sticky Header */}
       <Navbar activeSection={activeSection} />
 

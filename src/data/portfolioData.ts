@@ -80,6 +80,7 @@ export const SOCIAL_LINKS = {
   leetcode: 'https://leetcode.com/u/rcbcskgtmipbks/',
   email: 'mewadaankit7089@gmail.com',
   phone: 'tel:+919755601342',
+  whatsapp: 'https://wa.me/919755601342',
 };
 
 export const SKILL_CATEGORIES: SkillCategory[] = [

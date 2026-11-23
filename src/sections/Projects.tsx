@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Layers, ArrowUpRight, ChevronDown, ChevronUp, ZoomIn } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { PROJECTS } from '../data/portfolioData';
 import { GithubIcon } from '../components/Icons';
 import { ArchitectureDiagramAnkAI } from '../components/ArchitectureDiagramAnkAI';
@@ -18,11 +19,17 @@ export const Projects: React.FC = () => {
     <section
       id="projects"
       tabIndex={-1}
-      className="py-20 sm:py-28 bg-[#0C0D12] text-white border-t border-white/[0.08] outline-none"
+      className="py-16 sm:py-28 bg-[#0C0D12] text-white border-t border-white/[0.08] outline-none"
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="mb-10 sm:mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
             <span>PORTFOLIO</span>
@@ -32,44 +39,48 @@ export const Projects: React.FC = () => {
             <span className="text-white">FEATURED </span>
             <span className="text-[#717482]">PROJECTS</span>
           </h2>
-          <p className="text-sm text-[#9094A0] mt-2 max-w-xl leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#9094A0] mt-2 max-w-xl leading-relaxed">
             Production-grade systems in multi-agent AI orchestration and explainable machine learning.
           </p>
-        </div>
+        </motion.div>
 
         {/* Project Cards Grid */}
-        <div className="space-y-12">
+        <div className="space-y-8 sm:space-y-12">
           {PROJECTS.map((project, index) => {
             const isExpanded = expandedProjectId === project.id;
 
             return (
-              <article
+              <motion.article
                 key={project.id}
-                className="group rounded-3xl border border-white/[0.08] bg-[#14151C] hover:border-white/[0.16] transition-all duration-300 overflow-hidden shadow-2xl"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#14151C] hover:border-white/[0.16] transition-all duration-300 overflow-hidden shadow-2xl"
               >
                 {/* Main Card Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 p-6 sm:p-8 lg:p-10">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 p-4 sm:p-7 lg:p-10">
                   {/* Left Column: Visual Preview (Using Blueprint Image for AnkAI) */}
                   <div className="lg:col-span-6 flex flex-col justify-between">
-                    <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0B0F] aspect-[16/10] group-hover:border-[#E05D38]/40 transition-colors">
+                    <div className="relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0B0F] aspect-[16/10] group-hover:border-[#E05D38]/40 transition-colors">
                       {project.screenshot ? (
                         <>
                           <img
                             src={project.screenshot}
                             alt={`${project.title} Architecture Blueprint`}
-                            className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
+                            className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-500 cursor-pointer"
                             onClick={() => {
                               if (project.id === 'ankai') setIsModalOpen(true);
                             }}
                           />
-                          <div className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-mono tracking-wider uppercase bg-black/80 text-white border border-white/[0.1] backdrop-blur-xs flex items-center gap-1.5">
+                          <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 px-2 sm:px-2.5 py-1 rounded-md text-[9px] sm:text-[10px] font-mono tracking-wider uppercase bg-black/85 text-white border border-white/[0.1] backdrop-blur-xs flex items-center gap-1.5">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
                             <span>Architecture Blueprint</span>
                           </div>
                           {project.id === 'ankai' && (
                             <button
                               onClick={() => setIsModalOpen(true)}
-                              className="absolute bottom-3 right-3 px-3 py-1.5 rounded-md text-xs font-semibold bg-[#E05D38] hover:bg-[#F06B45] text-white flex items-center gap-1.5 shadow-lg transition-colors cursor-pointer"
+                              className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 px-2.5 sm:px-3 py-1.5 rounded-md text-[11px] sm:text-xs font-semibold bg-[#E05D38] hover:bg-[#F06B45] text-white flex items-center gap-1.5 shadow-lg transition-colors cursor-pointer"
                             >
                               <ZoomIn className="w-3.5 h-3.5" />
                               <span>Enlarge Blueprint</span>
@@ -78,29 +89,29 @@ export const Projects: React.FC = () => {
                         </>
                       ) : (
                         /* Credit Ledger Authentic SHAP Waterfall & ML Visualizer */
-                        <div className="w-full h-full p-5 sm:p-6 flex flex-col justify-between bg-[#0E0F16] font-mono select-none">
-                          <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
-                            <div className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-[#E05D38]"></span>
-                              <span className="text-xs font-bold text-white uppercase tracking-wider">
-                                SHAP TreeExplainer Local Attribution
+                        <div className="w-full h-full p-4 sm:p-6 flex flex-col justify-between bg-[#0E0F16] font-mono select-none text-xs">
+                          <div className="flex items-center justify-between pb-2 sm:pb-3 border-b border-white/[0.08] gap-2">
+                            <div className="flex items-center gap-1.5 min-w-0">
+                              <span className="w-2 h-2 rounded-full bg-[#E05D38] shrink-0"></span>
+                              <span className="text-[10px] sm:text-xs font-bold text-white uppercase tracking-wider truncate">
+                                SHAP TreeExplainer Attribution
                               </span>
                             </div>
-                            <span className="text-[10px] px-2 py-0.5 rounded bg-[#1B1D27] text-emerald-400 font-semibold border border-white/[0.06]">
+                            <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded bg-[#1B1D27] text-emerald-400 font-semibold border border-white/[0.06] shrink-0">
                               ROC-AUC 0.942
                             </span>
                           </div>
 
                           {/* SHAP Waterfall Bars Preview */}
-                          <div className="space-y-2 py-3 text-[11px]">
-                            <div className="flex items-center justify-between text-[#8E929E] text-[10px] pb-1">
-                              <span>FEATURE IMPACT (LOCAL EXPLANATION)</span>
-                              <span>SHAP VALUE (Δ RISK)</span>
+                          <div className="space-y-1.5 sm:space-y-2 py-2 sm:py-3 text-[10px] sm:text-[11px]">
+                            <div className="flex items-center justify-between text-[#8E929E] text-[9px] sm:text-[10px] pb-0.5">
+                              <span>FEATURE IMPACT</span>
+                              <span>SHAP VALUE</span>
                             </div>
 
-                            <div className="space-y-1.5">
+                            <div className="space-y-1 sm:space-y-1.5">
                               <div>
-                                <div className="flex justify-between text-white text-[10px] mb-0.5">
+                                <div className="flex justify-between text-white text-[9px] sm:text-[10px] mb-0.5">
                                   <span>loan_percent_income &gt; 0.38</span>
                                   <span className="text-[#E05D38] font-bold">+0.24</span>
                                 </div>
@@ -110,7 +121,7 @@ export const Projects: React.FC = () => {
                               </div>
 
                               <div>
-                                <div className="flex justify-between text-white text-[10px] mb-0.5">
+                                <div className="flex justify-between text-white text-[9px] sm:text-[10px] mb-0.5">
                                   <span>loan_grade = 'D'</span>
                                   <span className="text-[#E05D38] font-bold">+0.18</span>
                                 </div>
@@ -120,7 +131,7 @@ export const Projects: React.FC = () => {
                               </div>
 
                               <div>
-                                <div className="flex justify-between text-white text-[10px] mb-0.5">
+                                <div className="flex justify-between text-white text-[9px] sm:text-[10px] mb-0.5">
                                   <span>person_income = $85,000</span>
                                   <span className="text-emerald-400 font-bold">-0.16</span>
                                 </div>
@@ -132,9 +143,9 @@ export const Projects: React.FC = () => {
                           </div>
 
                           {/* Metric Footnote */}
-                          <div className="flex items-center justify-between text-[10px] pt-3 border-t border-white/[0.08] text-[#8E929E]">
-                            <span>Base E[f(X)]: 0.22</span>
-                            <span className="text-white font-bold">f(x): 0.51 · DEFAULT VERDICT</span>
+                          <div className="flex items-center justify-between text-[9px] sm:text-[10px] pt-2 sm:pt-3 border-t border-white/[0.08] text-[#8E929E]">
+                            <span>E[f(X)]: 0.22</span>
+                            <span className="text-white font-bold">f(x): 0.51</span>
                             <span className="text-emerald-400 font-semibold">FastAPI &lt; 85ms</span>
                           </div>
                         </div>
@@ -142,11 +153,11 @@ export const Projects: React.FC = () => {
                     </div>
 
                     {/* Tech Badges */}
-                    <div className="flex flex-wrap gap-1.5 mt-5">
+                    <div className="flex flex-wrap gap-1.5 mt-3 sm:mt-5">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-2.5 py-1 rounded-md bg-[#181924] border border-white/[0.06] text-[11px] font-mono font-medium text-[#C0C4D0]"
+                          className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-[#181924] border border-white/[0.06] text-[10px] sm:text-[11px] font-mono font-medium text-[#C0C4D0]"
                         >
                           {tag}
                         </span>
@@ -155,30 +166,30 @@ export const Projects: React.FC = () => {
                   </div>
 
                   {/* Right Column: Information & Actions */}
-                  <div className="lg:col-span-6 flex flex-col justify-between space-y-5">
+                  <div className="lg:col-span-6 flex flex-col justify-between space-y-4 sm:space-y-5">
                     <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-mono font-bold text-[#E05D38] tracking-widest uppercase">
+                      <div className="flex items-center justify-between mb-1.5 sm:mb-2">
+                        <span className="text-[11px] sm:text-xs font-mono font-bold text-[#E05D38] tracking-widest uppercase">
                           PROJECT 0{index + 1}
                         </span>
-                        <span className="text-xs font-mono text-[#717482]">
+                        <span className="text-[10px] sm:text-xs font-mono text-[#717482]">
                           {project.technicalDetails.architectureType}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-white">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-white">
                         {project.title}
                       </h3>
                       <p className="text-xs sm:text-sm font-semibold text-[#E05D38] mt-1 uppercase tracking-wide">
                         {project.subtitle}
                       </p>
 
-                      <p className="text-sm text-[#9094A0] leading-relaxed mt-4">
+                      <p className="text-xs sm:text-sm text-[#9094A0] leading-relaxed mt-3 sm:mt-4">
                         {project.description}
                       </p>
 
                       {/* Key Engineering Features - Clean Editorial List */}
-                      <div className="mt-5 space-y-2">
+                      <div className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2">
                         {project.features.slice(0, 4).map((feat, fIdx) => (
                           <div key={fIdx} className="flex items-start gap-2.5 text-xs text-[#D1D5DB]">
                             <span className="text-[#E05D38] font-bold select-none">—</span>
@@ -189,32 +200,36 @@ export const Projects: React.FC = () => {
                     </div>
 
                     {/* Interactive Button Row */}
-                    <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/[0.08]">
+                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-white/[0.08]">
                       {project.liveUrl && (
-                        <a
+                        <motion.a
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-lg shadow-[#E05D38]/20"
+                          className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#E05D38] hover:bg-[#F06B45] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-colors shadow-lg shadow-[#E05D38]/20 min-h-[40px]"
                         >
                           <span>LIVE DEMO</span>
                           <ArrowUpRight className="w-3.5 h-3.5" />
-                        </a>
+                        </motion.a>
                       )}
 
-                      <a
+                      <motion.a
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#181924] hover:bg-[#222432] border border-white/[0.1] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                        className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#181924] hover:bg-[#222432] border border-white/[0.1] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-colors min-h-[40px]"
                       >
                         <GithubIcon className="w-3.5 h-3.5" />
                         <span>SOURCE CODE</span>
-                      </a>
+                      </motion.a>
 
                       <button
                         onClick={() => toggleExpand(project.id)}
-                        className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-[#A0A4B2] hover:text-white hover:bg-white/[0.04] transition-colors cursor-pointer ml-auto"
+                        className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#A0A4B2] hover:text-white hover:bg-white/[0.04] transition-colors cursor-pointer ml-auto min-h-[40px]"
                       >
                         <Layers className="w-3.5 h-3.5 text-[#E05D38]" />
                         <span>{isExpanded ? 'CLOSE SPECS' : 'VIEW SPECS'}</span>
@@ -226,9 +241,9 @@ export const Projects: React.FC = () => {
 
                 {/* Expandable Architecture Specs */}
                 {isExpanded && (
-                  <div className="border-t border-white/[0.08] bg-[#0E0F16] p-6 sm:p-8 lg:p-10 space-y-6 animate-in fade-in duration-300">
-                    <div className="max-w-3xl space-y-2">
-                      <h4 className="text-sm uppercase tracking-wider font-bold text-white">
+                  <div className="border-t border-white/[0.08] bg-[#0E0F16] p-4 sm:p-7 lg:p-10 space-y-5 animate-in fade-in duration-300">
+                    <div className="max-w-3xl space-y-1.5">
+                      <h4 className="text-xs sm:text-sm uppercase tracking-wider font-bold text-white">
                         Architecture Breakdown & Engineering Rationale
                       </h4>
                       <p className="text-xs text-[#9094A0] leading-relaxed">
@@ -243,7 +258,7 @@ export const Projects: React.FC = () => {
                     )}
                   </div>
                 )}
-              </article>
+              </motion.article>
             );
           })}
         </div>

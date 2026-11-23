@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, MapPin, Award, Code2, Flame, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { EXPERIENCE, ACHIEVEMENTS } from '../data/portfolioData';
 
 export const Experience: React.FC = () => {
@@ -26,7 +27,13 @@ export const Experience: React.FC = () => {
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 sm:mb-10"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181922] border border-white/[0.08] text-[11px] font-semibold tracking-widest uppercase text-[#E05D38] mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E05D38]"></span>
             <span>EXPERIENCE & TRACK RECORD</span>
@@ -36,11 +43,17 @@ export const Experience: React.FC = () => {
             <span className="text-white">ENGINEERING </span>
             <span className="text-[#717482]">EXPERIENCE</span>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start">
           {/* Left Column: Work History Card */}
-          <div className="lg:col-span-7 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 space-y-3"
+          >
             <div className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38] mb-1">
               WORK HISTORY
             </div>
@@ -48,11 +61,11 @@ export const Experience: React.FC = () => {
             {EXPERIENCE.map((exp, idx) => (
               <div
                 key={idx}
-                className="p-6 sm:p-7 rounded-2xl bg-[#14151C] border border-white/[0.08] hover:border-white/[0.16] transition-all space-y-4"
+                className="p-5 sm:p-7 rounded-2xl bg-[#14151C] border border-white/[0.08] hover:border-white/[0.16] transition-all space-y-3.5"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-white/[0.08]">
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold uppercase text-white tracking-tight">
+                    <h3 className="text-base sm:text-xl font-bold uppercase text-white tracking-tight">
                       {exp.role}
                     </h3>
                     <div className="text-xs font-mono font-semibold text-[#E05D38] mt-0.5 tracking-wider uppercase">
@@ -61,11 +74,11 @@ export const Experience: React.FC = () => {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-[#8E929E]">
-                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
+                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06] text-[11px]">
                       <Calendar className="w-3 h-3 text-[#E05D38]" />
                       <span>{exp.period}</span>
                     </span>
-                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06]">
+                    <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#1A1C26] border border-white/[0.06] text-[11px]">
                       <MapPin className="w-3 h-3 text-[#E05D38]" />
                       <span>{exp.location}</span>
                     </span>
@@ -79,18 +92,25 @@ export const Experience: React.FC = () => {
                 {/* Clean Editorial Deliverables */}
                 <div className="space-y-1.5 pt-1">
                   {exp.responsibilities.map((resp, rIdx) => (
-                    <div key={rIdx} className="flex items-start gap-2.5 text-xs text-[#D1D5DB] leading-relaxed">
-                      <span className="text-[#E05D38] font-bold select-none">—</span>
+                    <div key={rIdx} className="flex items-start gap-2 text-xs text-[#D1D5DB] leading-relaxed">
+                      <span className="text-[#E05D38] font-bold select-none shrink-0">—</span>
                       <span>{resp}</span>
                     </div>
                   ))}
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Right Column: Sleek High-Density Milestone Strip */}
-          <div id="achievements" className="lg:col-span-5 space-y-4 scroll-mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            id="achievements"
+            className="lg:col-span-5 space-y-3 scroll-mt-24"
+          >
             <div className="flex items-center justify-between pb-1">
               <span className="text-xs font-mono font-bold tracking-widest uppercase text-[#E05D38]">
                 KEY ACHIEVEMENTS
@@ -102,8 +122,9 @@ export const Experience: React.FC = () => {
 
             <div className="space-y-2">
               {ACHIEVEMENTS.map((item) => (
-                <div
+                <motion.div
                   key={item.id}
+                  whileHover={{ y: -2 }}
                   className="p-3 sm:p-3.5 rounded-xl bg-[#14151C] border border-white/[0.06] hover:border-[#E05D38]/30 transition-all flex items-center justify-between gap-3 group"
                 >
                   <div className="flex items-center gap-3 min-w-0">
@@ -123,10 +144,10 @@ export const Experience: React.FC = () => {
                   <span className="shrink-0 px-2.5 py-1 rounded-md bg-[#191A24] border border-white/[0.06] text-xs font-mono font-black text-[#E05D38]">
                     {item.metric}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
