@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <script>
+      try {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'light') {
+          document.documentElement.classList.add('light');
+          document.querySelector('meta[name="color-scheme"]').content = 'light';
+        } else {
+          document.querySelector('meta[name="color-scheme"]').content = 'dark';
+        }
+      } catch (e) {}
+    </script>
     <title>Ankit Mewada | AI Engineer & Full-Stack Developer</title>
     <meta
       name="description"

@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUp, Mail } from 'lucide-react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon, LeetcodeIcon, WhatsappIcon } from './Icons';
+import { ThemeToggle } from './ThemeToggle';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -79,15 +80,18 @@ export const Footer: React.FC = () => {
               <span>WhatsApp</span>
             </a>
 
-            {/* Back to top button */}
-            <button
-              onClick={scrollToTop}
-              className="ml-1 sm:ml-3 p-2 rounded-full border border-white/[0.1] bg-[#14151C] hover:bg-[#1E202B] hover:border-[#E05D38]/50 text-white transition-colors cursor-pointer shrink-0"
-              aria-label="Back to top"
-              title="Back to top"
-            >
-              <ArrowUp className="w-3.5 h-3.5 text-[#E05D38]" />
-            </button>
+            {/* Theme Toggle & Back to top button */}
+            <div className="flex items-center gap-2 shrink-0">
+              <ThemeToggle />
+              <button
+                onClick={scrollToTop}
+                className="p-2 rounded-full border border-white/[0.1] bg-[#14151C] hover:bg-[#1E202B] hover:border-[#E05D38]/50 text-white transition-colors cursor-pointer shrink-0"
+                aria-label="Back to top"
+                title="Back to top"
+              >
+                <ArrowUp className="w-3.5 h-3.5 text-[#E05D38]" />
+              </button>
+            </div>
           </div>
         </div>
       </div>

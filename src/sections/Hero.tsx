@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
     <section
       id="hero"
       tabIndex={-1}
-      className="relative flex flex-col justify-center min-h-[82vh] md:min-h-[88vh] pt-20 sm:pt-28 md:pt-32 pb-4 sm:pb-8 overflow-hidden bg-[#0C0D12] text-white outline-none"
+      className="relative flex flex-col pt-20 sm:pt-24 md:pt-28 pb-4 sm:pb-6 overflow-hidden bg-[#0C0D12] text-white outline-none"
     >
       {/* Background Subtle Ambience Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#E05D38]/[0.08] rounded-full blur-[140px] pointer-events-none animate-glow" />

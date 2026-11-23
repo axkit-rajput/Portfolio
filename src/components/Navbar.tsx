@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { ThemeToggle } from './ThemeToggle';
 
 interface NavbarProps {
   activeSection: string;
@@ -80,8 +81,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           })}
         </nav>
 
-        {/* Right CTA Button */}
-        <div className="flex items-center gap-3">
+        {/* Right CTA Button & Day/Night Toggle */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <ThemeToggle />
+
           <motion.a
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
@@ -97,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           {/* Mobile Menu Toggle (44px min tap target) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden min-w-[44px] min-h-[44px] p-2.5 rounded-full bg-[#181922] border border-white/[0.1] text-white hover:text-[#E05D38] transition-colors flex items-center justify-center cursor-pointer"
+            className="md:hidden min-w-[40px] min-h-[40px] p-2 rounded-full bg-[#181922] border border-white/[0.1] text-white hover:text-[#E05D38] transition-colors flex items-center justify-center cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
